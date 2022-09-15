@@ -1,7 +1,8 @@
 import React from "react";
+import { Registration } from "components";
 
-const App = () => {
-  return <div>re</div>;
+const App = ({ firestore }) => {
+  return <Registration firestore={firestore} />;
 };
 
 export default App;

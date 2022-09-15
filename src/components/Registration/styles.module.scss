@@ -1,0 +1,44 @@
+@import "src/assets/variables/colors";
+.registration {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  margin: 0 auto;
+  padding: 50px 20px 0 20px;
+  background: $white;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wrapperForm, .wrapperLabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperForm {
+  margin: 50px 0 49px 0;
+}
+
+.wrapperLabel {
+
+  span {
+    margin-left: 19px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  input {
+    padding-left: 19px;
+    width: 335px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+  }
+
+}
+
