@@ -1,11 +1,17 @@
 @import "src/assets/variables/colors";
+
 .registration {
   position: relative;
   width: 375px;
-  min-height: 812px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 50px 20px 0 20px;
   background: $white;
+}
+
+.invalidFeedback {
+  margin: 10px 0 0 19px;
+  color: tomato;
 }
 
 .img {
@@ -20,10 +26,11 @@
 }
 
 .wrapperForm {
-  margin: 50px 0 49px 0;
+  margin: 40px 0 0 0;
 }
 
 .wrapperLabel {
+  margin-top: 10px;
 
   span {
     margin-left: 19px;
@@ -39,6 +46,26 @@
     border-radius: 20px;
     outline: none;
   }
+}
 
+.btnSubmit {
+  cursor: pointer;
+  margin-top: 39px;
+  width: 335px;
+  height: 60px;
+  background: #62D2C3;
+  border: none;
+  border-radius: 5px;
+}
+
+.changeToSingIn {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+
+  a {
+    color: $lightGreen;
+  }
 }
 

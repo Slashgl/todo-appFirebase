@@ -1,4 +1,5 @@
-@import "../../../assets/variables/colors";
+@import "src/assets/variables/colors";
+
 .title {
   padding-top: 183px;
   font-weight: 700;
@@ -7,6 +8,7 @@
   color: $title;
   opacity: 0.9;
 }
+
 .subtitle {
   font-weight: 600;
   font-size: 15px;
