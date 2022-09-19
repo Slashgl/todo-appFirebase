@@ -1,7 +1,7 @@
 import React from "react";
-import { ToastContainer, toast } from "react-toast";
+import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { validationOfRegistrationInputs } from "utils";
+import { validationOfRegistrationInputs, wave } from "utils";
 import Input from "./input";
 import Header from "./header";
 import { logoShape } from "assets";
@@ -17,8 +17,6 @@ const Registration = ({ firestore }) => {
     firestore.collection("users").add(data);
     reset();
   };
-
-  const wave = () => toast.success("Registration was successful");
 
   return (
     <div className={styles.registration}>
