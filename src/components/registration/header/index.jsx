@@ -3,10 +3,10 @@ import styles from "./styles.module.scss";
 
 const Header = () => {
   return (
-    <>
+    <header>
       <div className={styles.title}>Welcome Onboard!</div>
       <div className={styles.subtitle}>Lets help you in completing your tasks</div>
-    </>
+    </header>
   );
 };
 
