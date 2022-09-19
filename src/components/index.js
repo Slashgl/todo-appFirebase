@@ -1,2 +1,3 @@
-import Registration from "./Registration";
+import Registration from "./registration";
+
 export { Registration };
