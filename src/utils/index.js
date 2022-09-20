@@ -1,4 +1,4 @@
-import validationOfRegistrationInputs from "./validationOfRegistrationInputs";
+import validator from "./validator";
 import wave from "./showNotification";
 
-export { validationOfRegistrationInputs, wave };
+export { validator, wave };
