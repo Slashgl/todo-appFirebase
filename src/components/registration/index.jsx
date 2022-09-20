@@ -25,14 +25,9 @@ const Registration = ({ firestore }) => {
           register={register}
           label={"Full Name"}
           name={"FullName"}
-          errors={errors?.FullName && <div>{errors?.FullName?.message}</div>}
+          errors={errors?.FullName?.message}
         />
-        <Input
-          register={register}
-          label={"Email"}
-          name={"Email"}
-          errors={errors?.Email && <div>{errors?.Email?.message}</div>}
-        />
+        <Input register={register} label={"Email"} name={"Email"} errors={errors?.Email?.message} />
         <Input
           register={register}
           label={"Password"}
