@@ -2,11 +2,11 @@ import React from "react";
 import Label from "./label";
 import styles from "./styles.module.scss";
 
-const Input = ({ register, name, errors, nameRegister }) => {
+const Input = ({ register, label, errors, name }) => {
   return (
     <Label>
-      <span>{name}</span>
-      <input type="text" {...register(nameRegister)} />
+      <span>{label}</span>
+      <input type="text" {...register(name)} />
       <div className={styles.invalidFeedback}>{errors}</div>
     </Label>
   );

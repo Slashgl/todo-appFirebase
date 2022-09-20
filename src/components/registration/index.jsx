@@ -23,26 +23,26 @@ const Registration = ({ firestore }) => {
       <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
         <Input
           register={register}
-          name={"Full Name"}
-          nameRegister={"FullName"}
+          label={"Full Name"}
+          name={"FullName"}
           errors={errors?.FullName && <div>{errors?.FullName?.message}</div>}
         />
         <Input
           register={register}
+          label={"Email"}
           name={"Email"}
-          nameRegister={"Email"}
           errors={errors?.Email && <div>{errors?.Email?.message}</div>}
         />
         <Input
           register={register}
-          name={"Password"}
+          label={"Password"}
           error={errors?.Password?.message}
-          nameRegister={"Password"}
+          name={"Password"}
         />
         <Input
           register={register}
-          name={"Confirm Password"}
-          nameRegister={"ConfirmPassword"}
+          label={"Confirm Password"}
+          name={"ConfirmPassword"}
           errors={errors?.ConfirmPassword?.message}
         />
         <button
