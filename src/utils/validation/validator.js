@@ -6,7 +6,6 @@ const validator = () => {
     FullName: Yup.string()
       .required("Full name is required")
       .max(20, "the length of the name should not exceed 20 characters"),
-
     Email: Yup.string()
       .required("Email is required")
       .matches(
