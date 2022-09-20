@@ -33,11 +33,14 @@ const Registration = ({ firestore }) => {
           label={"Password"}
           error={errors?.Password?.message}
           name={"Password"}
+          type={"password"}
+          autoComplete={"new-password"}
         />
         <Input
           register={register}
           label={"Confirm Password"}
           name={"ConfirmPassword"}
+          autoComplete={"new-password"}
           errors={errors?.ConfirmPassword?.message}
         />
         <button
