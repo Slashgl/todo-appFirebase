@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
-const validationOfRegistrationInputs = () => {
+const validator = () => {
   const validationSchema = Yup.object().shape({
     FullName: Yup.string()
       .required("Full name is required")
@@ -24,4 +24,4 @@ const validationOfRegistrationInputs = () => {
   return { mode: "onChange", resolver: yupResolver(validationSchema) };
 };
 
-export default validationOfRegistrationInputs;
+export default validator;

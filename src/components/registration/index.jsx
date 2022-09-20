@@ -1,13 +1,13 @@
 import React from "react";
 import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { validationOfRegistrationInputs, wave } from "utils";
+import { validator, wave } from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
-  const formOptions = validationOfRegistrationInputs();
+  const formOptions = validator();
 
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
