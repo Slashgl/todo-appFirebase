@@ -8,7 +8,6 @@ import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
   const formOptions = validator();
-
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
@@ -40,6 +39,7 @@ const Registration = ({ firestore }) => {
           register={register}
           label={"Confirm Password"}
           name={"ConfirmPassword"}
+          type={"password"}
           autoComplete={"new-password"}
           errors={errors?.ConfirmPassword?.message}
         />

@@ -11,8 +11,7 @@ const validator = () => {
       .matches(
         /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
         "Mail is not entered correctly"
-      )
-      .validate((e) => e.target.value),
+      ),
     Password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters"),
