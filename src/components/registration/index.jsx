@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { validationOfRegistrationInputs, wave } from "utils";
 import Input from "./input";
 import Header from "./header";
-import { logoShape } from "assets";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
@@ -20,7 +19,6 @@ const Registration = ({ firestore }) => {
 
   return (
     <div className={styles.registration}>
-      <img className={styles.img} src={logoShape} alt="img" />
       <Header />
       <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
         <Input
