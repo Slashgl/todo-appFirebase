@@ -55,7 +55,7 @@ const Registration = ({ firestore }) => {
       <div className={styles.singIn}>
         Already have an account? <a href="#">Sign In</a>
       </div>
-      <ToastContainer />
+      <ToastContainer position="top-right" />
     </div>
   );
 };
