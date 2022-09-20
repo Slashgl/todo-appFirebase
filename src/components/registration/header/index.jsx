@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 const Header = () => {
   return (
     <header>
-      <div className={styles.title}>Welcome Onboard!</div>
-      <div className={styles.subtitle}>Lets help you in completing your tasks</div>
+      <h1 className={styles.title}>Welcome Onboard!</h1>
+      <h2 className={styles.subtitle}>Lets help you in completing your tasks</h2>
     </header>
   );
 };
