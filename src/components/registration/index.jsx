@@ -34,53 +34,55 @@ const Registration = ({ firestore }) => {
   };
 
   return (
-    <div className={styles.registration}>
-      <Header />
-      <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          register={register}
-          label={"Full Name"}
-          name={"fullName"}
-          errors={errors?.fullName?.message}
-        />
-        <Input
-          register={register}
-          label={"Email"}
-          name={"email"}
-          type={"email"}
-          errors={errors?.email?.message}
-          invalidEmail={invalidEmail}
-        />
-        <Input
-          register={register}
-          label={"Password"}
-          error={errors?.password?.message}
-          name={"password"}
-          type={"password"}
-          autoComplete={"new-password"}
-        />
-        <Input
-          register={register}
-          label={"Confirm Password"}
-          name={"confirmPassword"}
-          type={"password"}
-          autoComplete={"new-password"}
-          errors={errors?.confirmPassword?.message}
-        />
-        <button
-          className={styles.button}
-          type="submit"
-          disabled={!formState.isValid}
-          onClick={wave}
-        >
-          Register
-        </button>
-      </form>
-      <div className={styles.singIn}>
-        Already have an account? <a href="#">Sign In</a>
+    <>
+      <div className={styles.registration}>
+        <Header />
+        <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            register={register}
+            label={"Full Name"}
+            name={"fullName"}
+            errors={errors?.fullName?.message}
+          />
+          <Input
+            register={register}
+            label={"Email"}
+            name={"email"}
+            type={"email"}
+            errors={errors?.email?.message}
+            invalidEmail={invalidEmail}
+          />
+          <Input
+            register={register}
+            label={"Password"}
+            error={errors?.password?.message}
+            name={"password"}
+            type={"password"}
+            autoComplete={"new-password"}
+          />
+          <Input
+            register={register}
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            type={"password"}
+            autoComplete={"new-password"}
+            errors={errors?.confirmPassword?.message}
+          />
+          <button
+            className={styles.button}
+            type="submit"
+            disabled={!formState.isValid}
+            onClick={wave}
+          >
+            Register
+          </button>
+        </form>
+        <div className={styles.singIn}>
+          Already have an account? <a href="#">Sign In</a>
+        </div>
       </div>
       {!invalidEmail ? <ToastContainer position="top-right" /> : null}
-    </div>
+    </>
   );
 };
 export default Registration;

@@ -29,6 +29,7 @@
 
   &:disabled {
     cursor: default;
+    background-color: grey;
   }
 
   @include screen576 {
