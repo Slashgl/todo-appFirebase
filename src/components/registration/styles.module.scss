@@ -2,9 +2,10 @@
 @import "src/assets/mixin/media";
 
 .registration {
-  position: relative;
+  position: absolute;
   width: 100%;
-  margin-top: 183px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .wrapperForm {
