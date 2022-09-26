@@ -1,14 +1,15 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { firestore } from "./services/firebase";
 import { Registration } from "components";
-import { logoShape } from "./assets";
-import styles from "./styles.module.scss";
 
 const App = () => {
   return (
     <>
-      <img className={styles.img} src={logoShape} alt="img" />
       <Registration firestore={firestore} />
+      <Routes>
+        <Route path="/" element={<Registration />} />
+      </Routes>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
 import { validation, notificationSuccess, getCollectionUsers } from "utils";
@@ -71,7 +72,7 @@ const Registration = ({ firestore }) => {
           </button>
         </form>
         <div className={styles.singIn}>
-          Already have an account? <a href="#">Sign In</a>
+          Already have an account? <Link to="/login">Sign In</Link>
         </div>
       </div>
       {!invalidEmail ? <ToastContainer position="top-right" /> : null}
