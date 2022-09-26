@@ -1,4 +1,4 @@
-import index from "./validation";
-import wave from "./notification";
+import validation from "./validation";
+import notificationSuccess from "./notification";
 
-export { index, wave };
+export { validation, notificationSuccess };

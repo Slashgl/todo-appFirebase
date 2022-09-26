@@ -1,5 +1,5 @@
 import { toast } from "react-toast";
 
-const wave = () => toast.success("registration was successful");
+const notificationSuccess = () => toast.success("registration was successful");
 
-export default wave;
+export default notificationSuccess;

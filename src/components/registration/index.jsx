@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { index, wave } from "utils";
+import { validation, notificationSuccess } from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
-  const formOptions = index();
+  const formOptions = validation();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
   const [fireStore, setFireStore] = useState([""]);
@@ -72,7 +72,7 @@ const Registration = ({ firestore }) => {
             className={styles.button}
             type="submit"
             disabled={!formState.isValid}
-            onClick={wave}
+            onClick={notificationSuccess}
           >
             Register
           </button>
