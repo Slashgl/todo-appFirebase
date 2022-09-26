@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { validation, notificationSuccess } from "utils";
+import { validation, notificationSuccess, getCollectionUsers } from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
@@ -14,14 +14,7 @@ const Registration = ({ firestore }) => {
   const [invalidEmail, setInvalidEmail] = useState(false);
 
   useEffect(() => {
-    firestore
-      .collection("users")
-      .get()
-      .then((querySnapshot) =>
-        querySnapshot.forEach((documentSnapshot) =>
-          setFireStore((old) => [...old, documentSnapshot.data().email])
-        )
-      );
+    getCollectionUsers(firestore, setFireStore);
   }, [firestore]);
 
   const onSubmit = (data) => {
