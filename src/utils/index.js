@@ -1,4 +1,4 @@
-import validator from "./validation/validator";
-import wave from "./notification/showNotification";
+import index from "./validation";
+import wave from "./notification";
 
-export { validator, wave };
+export { index, wave };

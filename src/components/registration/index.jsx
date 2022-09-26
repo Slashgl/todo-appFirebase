@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { validator, wave } from "utils";
+import { index, wave } from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
-  const formOptions = validator();
+  const formOptions = index();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
   const [fireStore, setFireStore] = useState([""]);
@@ -19,15 +19,15 @@ const Registration = ({ firestore }) => {
       .get()
       .then((querySnapshot) =>
         querySnapshot.forEach((documentSnapshot) =>
-          setFireStore((old) => [...old, documentSnapshot.data().Email])
+          setFireStore((old) => [...old, documentSnapshot.data().email])
         )
       );
   }, [firestore]);
 
   const onSubmit = (data) => {
-    if (!fireStore.includes(data.Email)) {
+    if (!fireStore.includes(data.email)) {
       firestore.collection("users").add(data);
-      setFireStore(data.Email);
+      setFireStore(data.email);
     } else {
       setInvalidEmail(true);
     }
@@ -40,32 +40,32 @@ const Registration = ({ firestore }) => {
         <Input
           register={register}
           label={"Full Name"}
-          name={"FullName"}
-          errors={errors?.FullName?.message}
+          name={"fullName"}
+          errors={errors?.fullName?.message}
         />
         <Input
           register={register}
           label={"Email"}
-          name={"Email"}
+          name={"email"}
           type={"email"}
-          errors={errors?.Email?.message}
+          errors={errors?.email?.message}
           invalidEmail={invalidEmail}
         />
         <Input
           register={register}
           label={"Password"}
-          error={errors?.Password?.message}
-          name={"Password"}
+          error={errors?.password?.message}
+          name={"password"}
           type={"password"}
           autoComplete={"new-password"}
         />
         <Input
           register={register}
           label={"Confirm Password"}
-          name={"ConfirmPassword"}
+          name={"confirmPassword"}
           type={"password"}
           autoComplete={"new-password"}
-          errors={errors?.ConfirmPassword?.message}
+          errors={errors?.confirmPassword?.message}
         />
         <button
           className={styles.button}

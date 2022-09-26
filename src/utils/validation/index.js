@@ -1,26 +1,26 @@
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
-const validator = () => {
+const index = () => {
   const validationSchema = Yup.object().shape({
-    FullName: Yup.string()
+    fullName: Yup.string()
       .required("Full name is required")
       .max(20, "the length of the name should not exceed 20 characters"),
-    Email: Yup.string()
+    email: Yup.string()
       .required("Email is required")
       .matches(
         /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
         "Mail is not entered correctly"
       ),
-    Password: Yup.string()
+    password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters"),
-    ConfirmPassword: Yup.string()
+    confirmPassword: Yup.string()
       .required("Confirm Password is required")
-      .oneOf([Yup.ref("Password")], "Passwords must match"),
+      .oneOf([Yup.ref("password")], "Passwords must match"),
   });
 
   return { mode: "onChange", resolver: yupResolver(validationSchema) };
 };
 
-export default validator;
+export default index;

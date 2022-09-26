@@ -1,5 +1,5 @@
 import React from "react";
-import { firestore } from "./services/firebase/firebase";
+import { firestore } from "./services/firebase";
 import { Registration } from "components";
 import { logoShape } from "./assets";
 import styles from "./styles.module.scss";
