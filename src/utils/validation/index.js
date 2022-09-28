@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
-const index = () => {
+const validation = () => {
   const validationSchema = Yup.object().shape({
     fullName: Yup.string()
       .required("Full name is required")
@@ -23,4 +23,4 @@ const index = () => {
   return { mode: "onChange", resolver: yupResolver(validationSchema) };
 };
 
-export default index;
+export default validation;
