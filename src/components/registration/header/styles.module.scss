@@ -1,0 +1,16 @@
+@import "src/assets/variables/colors";
+
+.title {
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  color: $title;
+  opacity: 0.9;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: $title;
+}

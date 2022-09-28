@@ -1,0 +1,50 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.registration {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.wrapperForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include screen576 {
+    padding: 0 10px;
+  }
+}
+
+.button {
+  cursor: pointer;
+  width: 335px;
+  height: 60px;
+  margin-top: 39px;
+  border: none;
+  border-radius: 5px;
+  background: $lightGreen;
+
+  &:disabled {
+    cursor: default;
+    background-color: grey;
+  }
+
+  @include screen576 {
+    width: 100%;
+  }
+}
+
+.singIn {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+
+  a {
+    color: $lightGreen;
+  }
+}
+

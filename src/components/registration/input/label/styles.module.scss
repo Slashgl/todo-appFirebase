@@ -1,0 +1,11 @@
+@import "src/assets/mixin/media";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  @include screen576 {
+    width: 100%;
+  }
+}
