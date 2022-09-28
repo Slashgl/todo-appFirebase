@@ -75,7 +75,7 @@ const Registration = ({ firestore }) => {
           Already have an account? <Link to="/login">Sign In</Link>
         </div>
       </div>
-      {!invalidEmail ? <ToastContainer position="top-right" /> : null}
+      {!invalidEmail && <ToastContainer position="top-right" />}
     </>
   );
 };
