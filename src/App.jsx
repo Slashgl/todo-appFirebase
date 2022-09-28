@@ -5,11 +5,9 @@ import { Registration } from "components";
 
 const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Registration firestore={firestore} />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Registration firestore={firestore} />} />
+    </Routes>
   );
 };
 
