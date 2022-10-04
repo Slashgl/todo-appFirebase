@@ -17,9 +17,6 @@
         "react"
     ],
     "rules": {
-        "indent": [
-            "off"
-        ],
         "linebreak-style": [
             "error",
             "unix"

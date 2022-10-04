@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toast";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { validation, notificationSuccess, userRegistration } from "utils";
+import { useNavigate } from "react-router-dom";
+import {
+  validation,
+  userRegistration,
+  notificationSuccess,
+  notificationError,
+  getCollectionUsers,
+} from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
+import { useAuth } from "hooks";
+import { getUsers } from "store";
 
-const Registration = () => {
+const Registration = ({ firestore }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formOptions = validation();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
+  const [invalidEmail, setInvalidEmail] = useState(false);
+  const users = getUsers();
+
+  useEffect(() => {
+    getCollectionUsers(firestore, dispatch);
+  }, [firestore]);
 
   const onSubmit = (data) => {
-    userRegistration(data.email, data.password);
+    userRegistration(data.email, data.password, dispatch, navigate);
+    if (!users.includes(data.email)) {
+      firestore.collection("users").add(data);
+      notificationSuccess();
+    } else {
+      setInvalidEmail(true);
+      notificationError();
+    }
   };
 
   return (
@@ -32,6 +58,7 @@ const Registration = () => {
             name={"email"}
             type={"email"}
             errors={errors?.email?.message}
+            invalidEmail={invalidEmail}
           />
           <Input
             register={register}
@@ -49,18 +76,14 @@ const Registration = () => {
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
           />
-          <button
-            className={styles.button}
-            type="submit"
-            disabled={!formState.isValid}
-            onClick={notificationSuccess}
-          >
+          <button className={styles.button} type="submit" disabled={!formState.isValid}>
             Register
           </button>
         </form>
         <div className={styles.singIn}>
           Already have an account? <Link to="/login">Sign In</Link>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
