@@ -1,4 +1,5 @@
 @import "src/assets/mixin/media";
+@import "src/assets/variables/colors";
 
 .newPassword {
   position: absolute;
@@ -14,4 +15,16 @@
 .formWrapper {
   display: flex;
   flex-direction: column;
+
+  @include screen576 {
+    padding: 0 10px;
+  }
+}
+
+.signIn {
+  position: absolute;
+  right: 10px;
+  top: 65%;
+  text-decoration: none;
+  color: $lightGreen;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { resetPassword, validationResetPassword } from "utils";
 import Input from "../login/input";
@@ -24,6 +24,9 @@ const NewPassword = () => {
       <Header />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         <Input register={register} label={"Email"} type={"email"} name={"email"} />
+        <Link className={styles.signIn} to={"/login"}>
+          Sign-In
+        </Link>
         <ButtonSubmitForm formState={!formState.isValid} title={"Reset Password"} />
       </form>
     </div>
