@@ -1,8 +1,9 @@
-import { validationRegister, validationLogin } from "./validation";
+import { validationRegister, validationLogin, validationResetPassword } from "./validation";
 import { notificationSuccess, notificationError, notificationLogin } from "./notification";
 import userRegistration from "./userRegistration";
 import getCollectionUsers from "./firestoreCollectionUsers";
 import userLogin from "./userLogin";
+import resetPassword from "./resetPassword";
 
 export {
   validationRegister,
@@ -13,4 +14,6 @@ export {
   getCollectionUsers,
   userLogin,
   notificationLogin,
+  validationResetPassword,
+  resetPassword,
 };

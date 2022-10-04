@@ -1,0 +1,10 @@
+@import "src/assets/variables/colors";
+
+.title {
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  color: $title;
+  opacity: 0.9;
+}

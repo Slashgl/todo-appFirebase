@@ -39,4 +39,17 @@ const validationLogin = () => {
   return { mode: "onChange", resolver: yupResolver(validationSchema) };
 };
 
-export { validationLogin, validationRegister };
+const validationResetPassword = () => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required("Email is required")
+      .matches(
+        /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
+        "Mail is not entered correctly"
+      ),
+  });
+
+  return { mode: "onChange", resolver: yupResolver(validationSchema) };
+};
+
+export { validationLogin, validationRegister, validationResetPassword };

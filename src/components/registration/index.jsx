@@ -21,7 +21,7 @@ const Registration = ({ firestore }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formOptions = validationRegister();
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, formState, reset } = useForm(formOptions);
   const { errors } = formState;
   const users = getUsers();
 
@@ -39,8 +39,9 @@ const Registration = ({ firestore }) => {
   };
 
   const onSubmit = (data) => {
-    userRegistration(data.email, data.password, dispatch, navigate);
+    userRegistration(data.email, data.password, dispatch, navigate, reset);
     checksForEmail(data);
+    reset();
   };
 
   return (

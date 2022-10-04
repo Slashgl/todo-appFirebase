@@ -1,0 +1,17 @@
+@import "src/assets/mixin/media";
+
+.newPassword {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include screen576 {
+    width: 100%;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+}
