@@ -1,4 +1,4 @@
-import { SET_USERS_FIRESTORE, setUsersFireStore } from "../actions/user";
+import { SET_USERS_FIRESTORE, setUsersFireStore } from "../actions/usersFirestore";
 
 const initialState = {
   users: [],
