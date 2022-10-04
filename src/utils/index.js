@@ -1,5 +1,5 @@
 import validation from "./validation";
 import notificationSuccess from "./notification";
-import getCollectionUsers from "./firestoreCollectionUsers";
+import userRegistration from "./userRegistration";
 
-export { validation, notificationSuccess, getCollectionUsers };
+export { validation, notificationSuccess, userRegistration };

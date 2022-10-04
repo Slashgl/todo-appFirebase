@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toast";
 import { useForm } from "react-hook-form";
-import { validation, notificationSuccess, getCollectionUsers } from "utils";
+import { validation, notificationSuccess, userRegistration } from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
-const Registration = ({ firestore }) => {
+const Registration = () => {
   const formOptions = validation();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
-  const [fireStore, setFireStore] = useState([""]);
-  const [invalidEmail, setInvalidEmail] = useState(false);
-
-  useEffect(() => {
-    getCollectionUsers(firestore, setFireStore);
-  }, [firestore]);
 
   const onSubmit = (data) => {
-    if (!fireStore.includes(data.email)) {
-      firestore.collection("users").add(data);
-      setFireStore(data.email);
-    } else {
-      setInvalidEmail(true);
-    }
+    userRegistration(data.email, data.password);
   };
 
   return (
@@ -44,7 +32,6 @@ const Registration = ({ firestore }) => {
             name={"email"}
             type={"email"}
             errors={errors?.email?.message}
-            invalidEmail={invalidEmail}
           />
           <Input
             register={register}
@@ -75,7 +62,6 @@ const Registration = ({ firestore }) => {
           Already have an account? <Link to="/login">Sign In</Link>
         </div>
       </div>
-      {!invalidEmail && <ToastContainer position="top-right" />}
     </>
   );
 };
