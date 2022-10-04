@@ -1,0 +1,42 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include screen576 {
+    width: 100%;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include screen576 {
+    padding: 0 10px;
+  }
+}
+
+.forgotPassword {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: end;
+  text-decoration: none;
+  color: $lightGreen;
+}
+
+.footer {
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: $black;
+
+  a {
+    color: $lightGreen;
+  }
+}

@@ -6,20 +6,21 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "store";
 import {
-  validation,
   userRegistration,
   notificationSuccess,
   notificationError,
   getCollectionUsers,
+  validationRegister,
 } from "utils";
 import Input from "./input";
 import Header from "./header";
+import ButtonSubmitForm from "./buttonSubmitForm";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formOptions = validation();
+  const formOptions = validationRegister();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
   const users = getUsers();
@@ -33,7 +34,7 @@ const Registration = ({ firestore }) => {
       firestore.collection("users").add(data);
       notificationSuccess();
     } else {
-      notificationError(data);
+      notificationError();
     }
   };
 
@@ -76,9 +77,7 @@ const Registration = ({ firestore }) => {
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
           />
-          <button className={styles.button} type="submit" disabled={!formState.isValid}>
-            Register
-          </button>
+          <ButtonSubmitForm title={"Register"} formState={!formState.isValid} />
         </form>
         <div className={styles.singIn}>
           Already have an account? <Link to="/login">Sign In</Link>
