@@ -1,0 +1,21 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.button {
+  cursor: pointer;
+  width: 335px;
+  height: 60px;
+  margin-top: 39px;
+  border: none;
+  border-radius: 5px;
+  background: $lightGreen;
+
+  &:disabled {
+    cursor: default;
+    background-color: grey;
+  }
+
+  @include screen576 {
+    width: 100%;
+  }
+}
