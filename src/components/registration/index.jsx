@@ -1,30 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { validation, notificationSuccess, getCollectionUsers } from "utils";
+import { useNavigate } from "react-router-dom";
+import { getUsers } from "store";
+import {
+  validation,
+  userRegistration,
+  notificationSuccess,
+  notificationError,
+  getCollectionUsers,
+} from "utils";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
 const Registration = ({ firestore }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formOptions = validation();
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
-  const [fireStore, setFireStore] = useState([""]);
-  const [invalidEmail, setInvalidEmail] = useState(false);
+  const users = getUsers();
 
   useEffect(() => {
-    getCollectionUsers(firestore, setFireStore);
+    getCollectionUsers(firestore, dispatch);
   }, [firestore]);
 
-  const onSubmit = (data) => {
-    if (!fireStore.includes(data.email)) {
+  const checksForEmail = (data) => {
+    if (!users.includes(data.email)) {
       firestore.collection("users").add(data);
-      setFireStore(data.email);
+      notificationSuccess();
     } else {
-      setInvalidEmail(true);
+      notificationError(data);
     }
+  };
+
+  const onSubmit = (data) => {
+    userRegistration(data.email, data.password, dispatch, navigate);
+    checksForEmail(data);
   };
 
   return (
@@ -44,7 +59,6 @@ const Registration = ({ firestore }) => {
             name={"email"}
             type={"email"}
             errors={errors?.email?.message}
-            invalidEmail={invalidEmail}
           />
           <Input
             register={register}
@@ -62,12 +76,7 @@ const Registration = ({ firestore }) => {
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
           />
-          <button
-            className={styles.button}
-            type="submit"
-            disabled={!formState.isValid}
-            onClick={notificationSuccess}
-          >
+          <button className={styles.button} type="submit" disabled={!formState.isValid}>
             Register
           </button>
         </form>
@@ -75,7 +84,7 @@ const Registration = ({ firestore }) => {
           Already have an account? <Link to="/login">Sign In</Link>
         </div>
       </div>
-      {!invalidEmail && <ToastContainer position="top-right" />}
+      <ToastContainer position={"top-right"} />
     </>
   );
 };

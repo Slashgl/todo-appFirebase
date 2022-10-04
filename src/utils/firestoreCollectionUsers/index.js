@@ -1,11 +1,13 @@
-const getCollectionUsers = (firestore, setFireStore) => {
+import { changeUsers } from "store";
+
+const getCollectionUsers = (firestore, dispatch) => {
   try {
     firestore
       .collection("users")
       .get()
       .then((querySnapshot) =>
         querySnapshot.forEach((documentSnapshot) =>
-          setFireStore((old) => [...old, documentSnapshot.data().email])
+          dispatch(changeUsers(documentSnapshot.data().email))
         )
       );
   } catch (e) {

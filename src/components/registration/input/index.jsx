@@ -8,7 +8,7 @@ const Input = ({ register, label, errors, name, type, autoComplete, invalidEmail
       <span>{label}</span>
       <input type={type} {...register(name)} autoComplete={autoComplete} />
       <div className={styles.invalidFeedback}>{errors}</div>
-      <div className={styles.invalidEmail}>{invalidEmail && "This email is registered"}</div>
+      <div className={styles.invalidEmail}>{invalidEmail && "Email is registered"}</div>
     </Label>
   );
 };
