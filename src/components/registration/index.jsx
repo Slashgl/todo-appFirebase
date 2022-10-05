@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { firestore } from "services/firebase";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
@@ -12,6 +12,7 @@ import {
   getCollectionUsers,
   validationRegister,
 } from "utils";
+import { registerApi } from "services";
 import Input from "./input";
 import Header from "./header";
 import ButtonSubmitForm from "../button/buttonSubmitForm";
@@ -33,7 +34,7 @@ const Registration = () => {
   const userRegistration = async (email, password, dispatch, navigate) => {
     const auth = getAuth();
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const res = await registerApi.createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/homePage");

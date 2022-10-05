@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { validationResetPassword } from "utils";
+import { resetPasswordApi } from "services";
 import { useDispatch } from "react-redux";
 import { changeUser } from "store";
 import Input from "../login/input";
@@ -19,7 +20,7 @@ const NewPassword = () => {
   const resetPassword = async (email) => {
     const auth = getAuth();
     try {
-      await sendPasswordResetEmail(auth, email).then(() => {
+      await resetPasswordApi.sendPasswordResetEmail(auth, email).then(() => {
         dispatch(changeUser(email));
         navigate("/login");
       });

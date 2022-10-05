@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toast";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { validationLogin, notificationLogin } from "utils";
+import { signInApi } from "services";
 import { useDispatch } from "react-redux";
 import { changeUser } from "store";
 import Header from "./header";
@@ -21,7 +22,7 @@ const Login = () => {
   const userLogin = async (email, password) => {
     const auth = getAuth();
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password);
+      const res = await signInApi.signInWithEmailAndPassword(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/homePage");
