@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
+import { firestore } from "services/firebase";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,8 @@ import Header from "./header";
 import ButtonSubmitForm from "./buttonSubmitForm";
 import styles from "./styles.module.scss";
 
-const Registration = ({ firestore }) => {
+const Registration = () => {
+  const fireStore = firestore;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formOptions = validationRegister();
@@ -26,12 +28,12 @@ const Registration = ({ firestore }) => {
   const users = getUsers();
 
   useEffect(() => {
-    getCollectionUsers(firestore, dispatch);
-  }, [firestore]);
+    getCollectionUsers(fireStore, dispatch);
+  }, [fireStore]);
 
   const checksForEmail = (data) => {
     if (!users.includes(data.email)) {
-      firestore.collection("users").add(data);
+      fireStore.collection("users").add(data);
       notificationSuccess();
     } else {
       notificationError();
