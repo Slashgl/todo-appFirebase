@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userLogin, validationLogin, notificationLogin } from "utils";
 import Header from "./header";
 import Input from "./input";
-import ButtonSubmitForm from "../registration/buttonSubmitForm";
+import ButtonSubmitForm from "../button/buttonSubmitForm";
 import { ToastContainer } from "react-toast";
 import styles from "./styles.module.scss";
 

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { resetPassword, validationResetPassword } from "utils";
 import Input from "../login/input";
-import ButtonSubmitForm from "../registration/buttonSubmitForm";
+import ButtonSubmitForm from "../button/buttonSubmitForm";
 import Header from "./header";
 import styles from "./styles.module.scss";
 

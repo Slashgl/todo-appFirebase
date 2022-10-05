@@ -15,7 +15,7 @@ import {
 } from "utils";
 import Input from "./input";
 import Header from "./header";
-import ButtonSubmitForm from "./buttonSubmitForm";
+import ButtonSubmitForm from "../button/buttonSubmitForm";
 import styles from "./styles.module.scss";
 
 const Registration = () => {
