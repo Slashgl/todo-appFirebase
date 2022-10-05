@@ -1,21 +1,35 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { resetPassword, validationResetPassword } from "utils";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { validationResetPassword } from "utils";
+import { useDispatch } from "react-redux";
+import { changeUser } from "store";
 import Input from "../login/input";
 import ButtonSubmitForm from "../button/buttonSubmitForm";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
 const NewPassword = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formOptions = validationResetPassword();
   const { register, handleSubmit, formState, reset } = useForm(formOptions);
 
+  const resetPassword = async (email) => {
+    const auth = getAuth();
+    try {
+      await sendPasswordResetEmail(auth, email).then(() => {
+        dispatch(changeUser(email));
+        navigate("/login");
+      });
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   const onSubmit = (data) => {
-    resetPassword(data.email, dispatch, reset, navigate);
+    resetPassword(data.email);
     reset();
   };
 

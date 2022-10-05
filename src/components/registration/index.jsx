@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { firestore } from "services/firebase";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { getUsers } from "store";
+import { useNavigate, Link } from "react-router-dom";
+import { changeUser, getUsers } from "store";
 import {
-  userRegistration,
   notificationSuccess,
   notificationError,
   getCollectionUsers,
@@ -30,6 +29,18 @@ const Registration = () => {
   useEffect(() => {
     getCollectionUsers(fireStore, dispatch);
   }, [fireStore]);
+
+  const userRegistration = async (email, password, dispatch, navigate) => {
+    const auth = getAuth();
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      await dispatch(changeUser(user));
+      navigate("/homePage");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const checksForEmail = (data) => {
     if (!users.includes(data.email)) {

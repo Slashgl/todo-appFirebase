@@ -1,23 +1,38 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toast";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { userLogin, validationLogin, notificationLogin } from "utils";
+import { validationLogin, notificationLogin } from "utils";
+import { useDispatch } from "react-redux";
+import { changeUser } from "store";
 import Header from "./header";
 import Input from "./input";
 import ButtonSubmitForm from "../button/buttonSubmitForm";
 import styles from "./styles.module.scss";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formOptions = validationLogin();
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, formState, reset } = useForm(formOptions);
   const { errors } = formState;
 
-  const onSubmit = (data) => {
-    userLogin(data.email, data.password, dispatch, navigate, notificationLogin);
+  const userLogin = async (email, password) => {
+    const auth = getAuth();
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      await dispatch(changeUser(user));
+      navigate("/homePage");
+    } catch {
+      notificationLogin();
+    }
+  };
+
+  const onSubmit = async (data) => {
+    await userLogin(data.email, data.password);
+    reset();
   };
 
   return (
