@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { registerPath, loginPath, newPasswordPath, homePagePath } from "utils";
-import { Login, NewPassword, Registration } from "./components";
-import { HomePage } from "./pages";
+import { Login, NewPassword, Registration } from "components";
+import { HomePage } from "pages";
 
 const App = () => {
   return (
