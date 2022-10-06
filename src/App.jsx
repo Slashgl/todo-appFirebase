@@ -3,17 +3,21 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage, Registration, Login, NewPassword } from "components";
 
 const App = () => {
-  const register = "/";
-  const homePage = "/homePage";
-  const login = "/login";
-  const newPassword = "/reset-password";
+  const registerPath = "/";
+  const homePagePath = "/homePage";
+  const loginPath = "/login";
+  const newPasswordPath = "/reset-password";
+  const registrationPage = <Registration />;
+  const homePage = <HomePage />;
+  const loginPage = <Login />;
+  const newPasswordPage = <NewPassword />;
 
   return (
     <Routes>
-      <Route path={register} element={<Registration />} />
-      <Route path={homePage} element={<HomePage />} />
-      <Route path={login} element={<Login />} />
-      <Route path={newPassword} element={<NewPassword />} />
+      <Route path={registerPath} element={registrationPage} />
+      <Route path={homePagePath} element={homePage} />
+      <Route path={loginPath} element={loginPage} />
+      <Route path={newPasswordPath} element={newPasswordPage} />
     </Routes>
   );
 };
