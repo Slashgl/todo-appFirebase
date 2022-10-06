@@ -1,13 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { getAuth } from "firebase/auth";
 import { validationResetPassword } from "utils";
 import { resetPasswordApi } from "services";
-import { useDispatch } from "react-redux";
 import { changeUser } from "store";
 import Input from "../login/input";
-import ButtonSubmitForm from "../button/buttonSubmitForm";
+import ButtonSubmitForm from "../button";
 import Header from "./header";
 import styles from "./styles.module.scss";
 

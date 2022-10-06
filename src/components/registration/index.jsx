@@ -15,7 +15,7 @@ import {
 import { registerApi } from "services";
 import Input from "./input";
 import Header from "./header";
-import ButtonSubmitForm from "../button/buttonSubmitForm";
+import ButtonSubmitForm from "../button";
 import styles from "./styles.module.scss";
 
 const Registration = () => {
