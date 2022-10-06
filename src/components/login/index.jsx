@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toast";
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { validationLogin, notificationLogin } from "utils";
-import { signInApi } from "services";
+import { authApi } from "services";
 import { changeUser } from "store";
 import Header from "./header";
 import Input from "./input";
@@ -22,7 +22,7 @@ const Login = () => {
   const logToAccount = async (email, password) => {
     const auth = getAuth();
     try {
-      const res = await signInApi.signIn(auth, email, password);
+      const res = await authApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/");

@@ -1,4 +1,3 @@
-import { signInApi, registerApi } from "./endpoint/auth";
-import { resetPasswordApi } from "./endpoint/resetPasswordApi";
+import { authApi } from "./endpoint/auth";
 
-export { signInApi, registerApi, resetPasswordApi };
+export { authApi };

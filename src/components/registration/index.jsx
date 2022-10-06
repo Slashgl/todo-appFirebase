@@ -12,7 +12,7 @@ import {
   getCollectionUsers,
   validationRegister,
 } from "utils";
-import { registerApi } from "services";
+import { authApi } from "services";
 import Input from "./input";
 import Header from "./header";
 import ButtonSubmitForm from "../buttonSubmitForm";
@@ -34,7 +34,7 @@ const Registration = () => {
   const userRegistration = async (email, password, dispatch, navigate) => {
     const auth = getAuth();
     try {
-      const res = await registerApi.createUsers(auth, email, password);
+      const res = await authApi.createUsers(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/");

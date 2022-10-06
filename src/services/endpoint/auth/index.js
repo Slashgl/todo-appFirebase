@@ -1,11 +1,13 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
-const signInApi = {
+const authApi = {
   signIn: (auth, email, password) => signInWithEmailAndPassword(auth, email, password),
-};
-
-const registerApi = {
   createUsers: (auth, email, password) => createUserWithEmailAndPassword(auth, email, password),
+  resetPassword: (auth, email) => sendPasswordResetEmail(auth, email),
 };
 
-export { signInApi, registerApi };
+export { authApi };
