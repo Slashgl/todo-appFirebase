@@ -1,5 +1,6 @@
 import React from "react";
-import { HomePage, Login, NewPassword, Registration } from "components";
+import { Login, NewPassword, Registration } from "components";
+import { HomePage } from "pages";
 
 const registerPath = "/";
 const homePagePath = "/homePage";

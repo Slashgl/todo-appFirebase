@@ -10,6 +10,7 @@ import {
   newPasswordPage,
   homePagePath,
 } from "utils";
+
 const App = () => {
   return (
     <Routes>
