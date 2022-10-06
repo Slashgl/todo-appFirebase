@@ -9,7 +9,7 @@ import { signInApi } from "services";
 import { changeUser } from "store";
 import Header from "./header";
 import Input from "./input";
-import ButtonSubmitForm from "../button";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import styles from "./styles.module.scss";
 
 const Login = () => {

@@ -7,7 +7,7 @@ import { validationResetPassword } from "utils";
 import { resetPasswordApi } from "services";
 import { changeUser } from "store";
 import Input from "../login/input";
-import ButtonSubmitForm from "../button";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
