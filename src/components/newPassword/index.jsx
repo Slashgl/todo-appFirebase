@@ -14,8 +14,8 @@ import styles from "./styles.module.scss";
 const NewPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formOptions = validationResetPassword();
-  const { register, handleSubmit, formState, reset } = useForm(formOptions);
+  const validation = validationResetPassword();
+  const { register, handleSubmit, formState, reset } = useForm(validation);
 
   const resetPassword = async (email) => {
     const auth = getAuth();

@@ -15,8 +15,8 @@ import styles from "./styles.module.scss";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formOptions = validationLogin();
-  const { register, handleSubmit, formState, reset } = useForm(formOptions);
+  const validation = validationLogin();
+  const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
 
   const userLogin = async (email, password) => {
@@ -31,8 +31,8 @@ const Login = () => {
     }
   };
 
-  const onSubmit = async (data) => {
-    await userLogin(data.email, data.password);
+  const onSubmit = (data) => {
+    userLogin(data.email, data.password);
     reset();
   };
 

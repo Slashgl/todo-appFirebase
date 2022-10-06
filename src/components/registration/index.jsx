@@ -22,8 +22,8 @@ const Registration = () => {
   const fireStore = firestore;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formOptions = validationRegister();
-  const { register, handleSubmit, formState, reset } = useForm(formOptions);
+  const validation = validationRegister();
+  const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
   const users = getUsers();
 
