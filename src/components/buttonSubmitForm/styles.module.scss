@@ -12,7 +12,7 @@
 
   &:disabled {
     cursor: default;
-    background-color: grey;
+    background-color: $grey;
   }
 
   @include screen576 {
