@@ -19,7 +19,7 @@ const Login = () => {
   const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
 
-  const userLogin = async (email, password) => {
+  const logToAccount = async (email, password) => {
     const auth = getAuth();
     try {
       const res = await signInApi.signIn(auth, email, password);
@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    userLogin(data.email, data.password);
+    logToAccount(data.email, data.password);
     reset();
   };
 
