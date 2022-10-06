@@ -1,6 +1,8 @@
 import { validationRegister, validationLogin, validationResetPassword } from "./validation";
 import { notificationSuccess, notificationError, notificationLogin } from "./notification";
 import getCollectionUsers from "./firestoreCollectionUsers";
+import toUpperCase from "./utilityFunction/toUpperCase";
+
 import {
   registrationPage,
   homePage,
@@ -28,4 +30,5 @@ export {
   registrationPage,
   newPasswordPage,
   newPasswordPath,
+  toUpperCase,
 };
