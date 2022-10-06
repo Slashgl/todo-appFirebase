@@ -63,22 +63,15 @@ const Registration = () => {
       <div className={styles.registration}>
         <Header />
         <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
+          <Input register={register} name={"fullName"} errors={errors?.fullName?.message} />
           <Input
             register={register}
-            label={"Full Name"}
-            name={"fullName"}
-            errors={errors?.fullName?.message}
-          />
-          <Input
-            register={register}
-            label={"Email"}
             name={"email"}
             type={"email"}
             errors={errors?.email?.message}
           />
           <Input
             register={register}
-            label={"Password"}
             error={errors?.password?.message}
             name={"password"}
             type={"password"}
@@ -86,7 +79,6 @@ const Registration = () => {
           />
           <Input
             register={register}
-            label={"Confirm Password"}
             name={"confirmPassword"}
             type={"password"}
             autoComplete={"new-password"}
