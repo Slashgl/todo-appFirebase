@@ -2,8 +2,8 @@ import React from "react";
 import { Login, NewPassword, Registration } from "components";
 import { HomePage } from "pages";
 
-const registerPath = "/";
-const homePagePath = "/homePage";
+const homePagePath = "/";
+const registerPath = "/register";
 const loginPath = "/login";
 const newPasswordPath = "/reset-password";
 const registrationPage = <Registration />;

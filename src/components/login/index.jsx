@@ -25,7 +25,7 @@ const Login = () => {
       const res = await signInApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
-      navigate("/homePage");
+      navigate("/");
     } catch {
       notificationLogin();
     }
@@ -61,7 +61,7 @@ const Login = () => {
           <ButtonSubmitForm title={"Login"} formState={!formState.isValid} />
         </form>
         <div className={styles.footer}>
-          Don’t have an account? <Link to={"/"}>Sign Up</Link>
+          Don’t have an account? <Link to={"/register"}>Sign Up</Link>
         </div>
       </div>
       <ToastContainer position={"top-right"} />

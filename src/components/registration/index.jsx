@@ -37,7 +37,7 @@ const Registration = () => {
       const res = await registerApi.createUsers(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
-      navigate("/homePage");
+      navigate("/");
     } catch (e) {
       console.log(e);
     }

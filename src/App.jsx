@@ -14,8 +14,8 @@ import {
 const App = () => {
   return (
     <Routes>
-      <Route path={registerPath} element={registrationPage} />
       <Route path={homePagePath} element={homePage} />
+      <Route path={registerPath} element={registrationPage} />
       <Route path={loginPath} element={loginPage} />
       <Route path={newPasswordPath} element={newPasswordPage} />
     </Routes>
