@@ -20,7 +20,7 @@ const NewPassword = () => {
   const resetPassword = async (email) => {
     const auth = getAuth();
     try {
-      await resetPasswordApi.sendPasswordResetEmail(auth, email).then(() => {
+      await resetPasswordApi.resetPassword(auth, email).then(() => {
         dispatch(changeUser(email));
         navigate("/login");
       });

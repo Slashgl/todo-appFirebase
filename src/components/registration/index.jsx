@@ -34,7 +34,7 @@ const Registration = () => {
   const userRegistration = async (email, password, dispatch, navigate) => {
     const auth = getAuth();
     try {
-      const res = await registerApi.createUserWithEmailAndPassword(auth, email, password);
+      const res = await registerApi.createUsers(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/homePage");

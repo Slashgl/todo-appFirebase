@@ -22,7 +22,7 @@ const Login = () => {
   const userLogin = async (email, password) => {
     const auth = getAuth();
     try {
-      const res = await signInApi.signInWithEmailAndPassword(auth, email, password);
+      const res = await signInApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
       navigate("/homePage");
