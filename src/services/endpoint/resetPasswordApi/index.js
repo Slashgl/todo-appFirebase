@@ -4,4 +4,4 @@ const resetPasswordApi = {
   resetPassword: (auth, email) => sendPasswordResetEmail(auth, email),
 };
 
-export default resetPasswordApi;
+export { resetPasswordApi };
