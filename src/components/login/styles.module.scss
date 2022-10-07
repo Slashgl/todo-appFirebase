@@ -3,8 +3,8 @@
 
 .login {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 
   @include screen576 {
@@ -15,6 +15,7 @@
 .formWrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @include screen576 {
     padding: 0 10px;
@@ -22,12 +23,17 @@
 }
 
 .forgotPassword {
+  width: 100%;
   margin-top: 10px;
+  text-align: end;
   font-weight: 700;
   font-size: 15px;
-  text-align: end;
   text-decoration: none;
   color: $lightGreen;
+
+  @include screen576 {
+    right: 10px;
+  }
 }
 
 .footer {
