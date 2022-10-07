@@ -1,17 +1,36 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getUser } from "store";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { changeUser, deleteUser, getUser } from "store";
 
 const HomePage = () => {
   const user = getUser();
+  const auth = getAuth();
   const navigate = useNavigate();
-  const isAuth = !!user.email;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    !isAuth && navigate("/login");
-  }, [!isAuth]);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(changeUser(user));
+      }
+    });
+  }, []);
 
-  return isAuth && <div>Welcome {user.email}</div>;
+  return (
+    <>
+      <div>Welcome {user.email}</div>
+      <button
+        onClick={() => {
+          dispatch(deleteUser());
+          navigate("/login");
+        }}
+      >
+        Выйти
+      </button>
+    </>
+  );
 };
 
 export default HomePage;

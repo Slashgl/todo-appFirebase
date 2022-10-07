@@ -1,4 +1,4 @@
-import { SET_USER, setUser } from "../actions/user";
+import { SET_USER, setUser, REMOVE_USER, removeUser } from "../actions/user";
 
 const initialState = {
   user: {
@@ -11,6 +11,10 @@ const changeUser = (user) => (dispatch) => {
   dispatch(setUser(user));
 };
 
+const deleteUser = () => (dispatch) => {
+  dispatch(removeUser());
+};
+
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
@@ -21,9 +25,17 @@ const userReducer = (state = initialState, action) => {
           uid: action.payload.uid,
         },
       };
+    case REMOVE_USER:
+      return {
+        ...state,
+        user: {
+          email: null,
+          uid: null,
+        },
+      };
     default:
       return state;
   }
 };
 
-export { userReducer, changeUser };
+export { userReducer, changeUser, deleteUser };
