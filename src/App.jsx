@@ -1,16 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { registerPath, loginPath, newPasswordPath, homePagePath } from "utils";
 import { Login, NewPassword, Registration } from "components";
 import { HomePage } from "pages";
+import ROUTES from "routes";
 
 const App = () => {
   return (
     <Routes>
-      <Route path={homePagePath} element={<HomePage />} />
-      <Route path={registerPath} element={<Registration />} />
-      <Route path={loginPath} element={<Login />} />
-      <Route path={newPasswordPath} element={<NewPassword />} />
+      <Route path={ROUTES.HOME} element={<HomePage />} />
+      <Route path={ROUTES.REGISTER} element={<Registration />} />
+      <Route path={ROUTES.LOGIN} element={<Login />} />
+      <Route path={ROUTES.NEW_PASSWORD} element={<NewPassword />} />
     </Routes>
   );
 };

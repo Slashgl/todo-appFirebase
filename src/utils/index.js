@@ -3,8 +3,6 @@ import { notificationSuccess, notificationError, notificationLogin } from "./not
 import getCollectionUsers from "./firestoreCollectionUsers";
 import toUpperCase from "./utilityFunction/toUpperCase";
 
-import { loginPath, homePagePath, registerPath, newPasswordPath } from "./variablesRoutesPaths";
-
 export {
   validationRegister,
   validationLogin,
@@ -13,9 +11,5 @@ export {
   getCollectionUsers,
   notificationLogin,
   validationResetPassword,
-  registerPath,
-  loginPath,
-  homePagePath,
-  newPasswordPath,
   toUpperCase,
 };
