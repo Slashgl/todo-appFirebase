@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { getAuth } from "firebase/auth";
 import { validationResetPassword } from "utils";
+import { ButtonSubmitForm } from "components";
 import { authApi } from "services";
 import { changeUser } from "store";
 import Input from "../login/input";
-import ButtonSubmitForm from "../buttonSubmitForm";
 import Header from "./header";
 import styles from "./styles.module.scss";
 

@@ -5,11 +5,11 @@ import { ToastContainer } from "react-toast";
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { validationLogin, notificationLogin } from "utils";
+import { ButtonSubmitForm } from "components";
 import { authApi } from "services";
 import { changeUser } from "store";
 import Header from "./header";
 import Input from "./input";
-import ButtonSubmitForm from "../buttonSubmitForm";
 import styles from "./styles.module.scss";
 
 const Login = () => {
