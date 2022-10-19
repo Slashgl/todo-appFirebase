@@ -5,18 +5,17 @@ import { getAuth } from "firebase/auth";
 import { firestore } from "services/firebase";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import { changeUser, getUsers } from "store";
 import {
-  notificationSuccess,
-  notificationError,
   getCollectionUsers,
+  notificationError,
+  notificationSuccess,
   validationRegister,
 } from "utils";
-import { ButtonSubmitForm } from "components";
+import { ButtonSubmitForm } from "components/index";
 import { authApi } from "services";
 import Input from "./input";
 import Header from "./header";
-import styles from "./styles.module.scss";
+import styles from "./input/styles.module.scss";
 
 const Registration = () => {
   const fireStore = firestore;
@@ -25,7 +24,6 @@ const Registration = () => {
   const validation = validationRegister();
   const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
-  const users = getUsers();
 
   useEffect(() => {
     getCollectionUsers(fireStore, dispatch);
@@ -34,27 +32,20 @@ const Registration = () => {
   const userRegistration = async (email, password, dispatch, navigate) => {
     const auth = getAuth();
     try {
-      const res = await authApi.createUsers(auth, email, password);
-      const user = res.user;
-      await dispatch(changeUser(user));
+      await authApi.createUsers(auth, email, password).then((cred) => {
+        return fireStore.collection("users").doc(cred.user.uid).set({
+          email: cred.user.email,
+        });
+      });
+      notificationSuccess();
       navigate("/");
     } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const checksForEmail = (data) => {
-    if (!users.includes(data.email)) {
-      fireStore.collection("users").add(data);
-      notificationSuccess();
-    } else {
       notificationError();
     }
   };
 
   const onSubmit = (data) => {
     userRegistration(data.email, data.password, dispatch, navigate, reset);
-    checksForEmail(data);
     reset();
   };
 

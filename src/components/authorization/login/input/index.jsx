@@ -5,7 +5,7 @@ const Input = ({ label, name, type, register }) => {
   return (
     <>
       <span className={styles.label}>{label}</span>
-      <input type={type} {...register(name)} />
+      <input className={styles.input} type={type} {...register(name)} />
     </>
   );
 };

@@ -1,0 +1,73 @@
+@import "src/assets/variables/colors";
+
+.board {
+  width: 100%;
+  min-height: 100vh;
+  padding: 27px 27px 0 27px;
+  background: $lightCream;
+}
+
+.title {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.newItem {
+  cursor: pointer;
+  width: 100%;
+  margin: 50px 0 27px 0;
+  color: $transparentGrey;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  background: $transparentCream;
+  border-radius: 10px;
+
+
+}
+
+.todos {
+  list-style: none;
+}
+
+.high, .medium, .low, .completed {
+  width: 100%;
+  margin-bottom: 27px;
+  padding: 0 5px 6px 5px;
+  text-align: center;
+}
+
+.details {
+  cursor: pointer;
+  width: 100%;
+  background: $white;
+  border: none;
+  border-radius: 8px;
+}
+
+.high {
+  background: $orange;
+  box-shadow: 0 4px 6px $shadowBlack;
+  border-radius: 8px;
+}
+
+.medium {
+  background: $mediumOrange;
+  box-shadow: 0 4px 6px $shadowBlack;
+  border-radius: 8px;
+}
+
+.low {
+  background: $lowOrange;
+  box-shadow: 0 4px 6px $shadowBlack;
+  border-radius: 8px;
+}
+
+.completed {
+  background: $blue;
+  box-shadow: 0 4px 6px $shadowBlack;
+  border-radius: 8px;
+}

@@ -1,0 +1,41 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.header {
+  position: relative;
+  width: 100%;
+  background: $lowYellow;
+}
+
+.menu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  @include screen576 {
+    justify-content: end;
+  }
+}
+
+.logOut {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 80px;
+  height: 50px;
+  border: none;
+  background-color: $tomato;
+  transform: translateY(-50%);
+
+  @include screen576 {
+    display: none;
+  }
+}

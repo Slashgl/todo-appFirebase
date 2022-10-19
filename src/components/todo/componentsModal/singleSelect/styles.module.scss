@@ -1,0 +1,10 @@
+@import "src/assets/variables/colors";
+
+.select {
+  cursor: pointer;
+  width: 100%;
+  height: 33px;
+  margin-top: 18px;
+  outline: none;
+  background: $orange;
+}

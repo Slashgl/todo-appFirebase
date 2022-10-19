@@ -1,0 +1,14 @@
+@import "src/assets/mixin/media";
+
+.homePage {
+  background: none;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  @include screen576 {
+    grid-template-columns: 1fr;
+  }
+}

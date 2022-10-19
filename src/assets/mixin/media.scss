@@ -1,5 +1,17 @@
+@mixin screen760 {
+  @media (max-width: 760px) {
+    @content
+  }
+}
+
 @mixin screen576 {
   @media (max-width: 576px) {
+    @content
+  }
+}
+
+@mixin screen360 {
+  @media (max-width: 360px) {
     @content
   }
 }
