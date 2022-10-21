@@ -39,7 +39,7 @@ const NewPassword = () => {
     <div className={styles.newPassword}>
       <Header />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
-        <Input register={register} label={"Email"} type={"email"} name={"email"} />
+        <Input register={register} label={"Email"} name={"email"} />
         <Link className={styles.signIn} to={"/login"}>
           Sign-In
         </Link>

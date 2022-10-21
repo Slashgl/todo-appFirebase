@@ -56,23 +56,16 @@ const Registration = () => {
         <Header />
         <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
           <Input register={register} name={"fullName"} errors={errors?.fullName?.message} />
-          <Input
-            register={register}
-            name={"email"}
-            type={"email"}
-            errors={errors?.email?.message}
-          />
+          <Input register={register} name={"email"} errors={errors?.email?.message} />
           <Input
             register={register}
             error={errors?.password?.message}
             name={"password"}
-            type={"password"}
             autoComplete={"new-password"}
           />
           <Input
             register={register}
             name={"confirmPassword"}
-            type={"password"}
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
           />

@@ -47,7 +47,6 @@ const Login = () => {
             register={register}
             label={"Email"}
             name={"email"}
-            type={"email"}
             errors={errors?.email?.message}
           />
           <Input
