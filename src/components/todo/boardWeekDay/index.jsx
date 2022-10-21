@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getActiveProject, changeActiveTodoId } from "store";
-import { ModalNewItem } from "components";
+import ModalNewItem from "../modalNewItem";
 import ModalDetails from "../modalDetails";
 import styles from "./styles.module.scss";
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { changeActiveIndex, changeActiveProject, getProject } from "store";
-import { ModalEditProject, ModalNewProject } from "components";
+import ModalEditProject from "../modalEditProject";
+import ModalNewProject from "../modalNewProject";
 import { editProjectImg } from "assets";
 import styles from "./styles.module.scss";
 

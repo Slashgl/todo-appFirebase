@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { getAuth } from "firebase/auth";
 import { validationResetPassword } from "utils";
-import { ButtonSubmitForm } from "components/index";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import { authApi } from "services";
 import { changeUser } from "store";
 import ROUTES from "routes";

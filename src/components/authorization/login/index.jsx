@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toast";
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { validationLogin, notificationLogin } from "utils";
-import { ButtonSubmitForm } from "components/index";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import { authApi } from "services";
 import { changeUser } from "store";
 import ROUTES from "routes";

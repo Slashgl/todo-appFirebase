@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { changeCheckedTodo, deleteTodo, editTodo } from "services";
-import { ModalInput, ModalWrapper, SingleSelect } from "components";
+import ModalInput from "../componentsModal/modalInput";
+import ModalWrapper from "../componentsModal/modalWrapper";
+import SingleSelect from "../componentsModal/singleSelect";
 import { getActiveTodoId, getProject, getUser } from "store";
 import { checkedImg, deleteImg, saveImg } from "assets";
 import styles from "./style.module.scss";

@@ -2,7 +2,7 @@ import React from "react";
 import { setProjectAsideBar } from "services";
 import { getProject, getUser } from "store";
 import { useForm } from "react-hook-form";
-import { ModalInput } from "components";
+import ModalInput from "../componentsModal/modalInput";
 import styles from "./styles.module.scss";
 
 const ModalNewProject = ({ updateAsideBar, setModalNewProject }) => {

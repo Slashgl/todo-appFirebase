@@ -11,7 +11,7 @@ import {
   notificationSuccess,
   validationRegister,
 } from "utils";
-import { ButtonSubmitForm } from "components/index";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import { authApi } from "services";
 import ROUTES from "routes";
 import Input from "./input";
