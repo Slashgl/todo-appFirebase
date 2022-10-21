@@ -14,9 +14,9 @@ import {
 import ButtonSubmitForm from "../buttonSubmitForm";
 import { authApi } from "services";
 import ROUTES from "routes";
-import Input from "./input";
+import Input from "../inputRegistration";
 import Header from "./header";
-import styles from "./input/styles.module.scss";
+import styles from "../inputRegistration/styles.module.scss";
 
 const Registration = () => {
   const fireStore = firestore;

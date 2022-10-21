@@ -8,7 +8,7 @@ import ButtonSubmitForm from "../buttonSubmitForm";
 import { authApi } from "services";
 import { changeUser } from "store";
 import ROUTES from "routes";
-import Input from "../login/input";
+import Input from "../inputLogin";
 import Header from "./header";
 import styles from "./styles.module.scss";
 

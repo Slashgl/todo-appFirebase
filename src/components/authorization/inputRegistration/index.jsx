@@ -1,7 +1,7 @@
 import React from "react";
 import { toUpperCase } from "utils";
 import Label from "./label";
-import styles from "../styles.module.scss";
+import styles from "../registration/styles.module.scss";
 
 const Input = ({ register, errors, name, type, autoComplete, invalidEmail }) => {
   return (

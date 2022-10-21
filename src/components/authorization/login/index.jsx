@@ -10,7 +10,7 @@ import { authApi } from "services";
 import { changeUser } from "store";
 import ROUTES from "routes";
 import Header from "./header";
-import Input from "./input";
+import Input from "../inputLogin";
 import styles from "./styles.module.scss";
 
 const Login = () => {
