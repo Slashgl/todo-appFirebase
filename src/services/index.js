@@ -1,11 +1,11 @@
 import { authApi } from "./endpoint/auth";
 import {
   changeCheckedTodo,
-  deleteTodo,
   editTodo,
   addNewTodo,
-  setProjectAsideBar,
+  deleteTodo,
   editProjects,
+  setProjectAsideBar,
 } from "./endpoint/setFirestore";
 
 export {

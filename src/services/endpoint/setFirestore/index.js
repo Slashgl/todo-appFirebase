@@ -78,4 +78,4 @@ const setProjectAsideBar = async (user, project, data) => {
     );
 };
 
-export { changeCheckedTodo, deleteTodo, editTodo, addNewTodo, setProjectAsideBar, editProjects };
+export { changeCheckedTodo, editTodo, addNewTodo, editProjects, deleteTodo, setProjectAsideBar };
