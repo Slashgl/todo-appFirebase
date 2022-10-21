@@ -8,24 +8,26 @@ import { validationLogin, notificationLogin } from "utils";
 import { ButtonSubmitForm } from "components/index";
 import { authApi } from "services";
 import { changeUser } from "store";
+import ROUTES from "routes";
 import Header from "./header";
 import Input from "./input";
 import styles from "./styles.module.scss";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const validation = validationLogin();
   const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
+  const navigate = useNavigate();
 
   const logToAccount = async (email, password) => {
     const auth = getAuth();
+
     try {
       const res = await authApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
-      navigate("/");
+      navigate(ROUTES.HOME);
     } catch {
       notificationLogin();
     }

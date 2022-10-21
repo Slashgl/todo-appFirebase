@@ -4,7 +4,7 @@ import { SET_NEW_ITEM_TODO, newItemTodo } from "../actions/newItemTodo";
 const initialState = {
   user: {
     email: null,
-    token: null,
+    uid: null,
   },
   todos: [],
 };

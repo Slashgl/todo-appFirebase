@@ -13,6 +13,7 @@ import {
 } from "utils";
 import { ButtonSubmitForm } from "components/index";
 import { authApi } from "services";
+import ROUTES from "routes";
 import Input from "./input";
 import Header from "./header";
 import styles from "./input/styles.module.scss";
@@ -38,7 +39,7 @@ const Registration = () => {
         });
       });
       notificationSuccess();
-      navigate("/");
+      navigate(ROUTES.HOME);
     } catch (e) {
       notificationError();
     }

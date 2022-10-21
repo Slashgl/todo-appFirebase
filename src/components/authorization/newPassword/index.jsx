@@ -7,6 +7,7 @@ import { validationResetPassword } from "utils";
 import { ButtonSubmitForm } from "components/index";
 import { authApi } from "services";
 import { changeUser } from "store";
+import ROUTES from "routes";
 import Input from "../login/input";
 import Header from "./header";
 import styles from "./styles.module.scss";
@@ -22,7 +23,7 @@ const NewPassword = () => {
     try {
       await authApi.resetPassword(auth, email).then(() => {
         dispatch(changeUser(email));
-        navigate("/login");
+        navigate(ROUTES.LOGIN);
       });
     } catch (err) {
       alert(err.message);
