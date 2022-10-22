@@ -5,6 +5,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addNewProject, changeUser } from "store";
 import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "../../routes";
 
 const HomePage = () => {
   const [isModalNewProject, setModalNewProject] = useState(false);
@@ -13,6 +15,13 @@ const HomePage = () => {
   const auth = getAuth();
   const dispatch = useDispatch();
   const fireStore = firestore;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      navigate(ROUTES.LOGIN);
+    }
+  });
 
   const updateAsideBar = () => {
     return onAuthStateChanged(auth, async (user) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toast";
@@ -19,14 +19,14 @@ const Login = () => {
   const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
   const navigate = useNavigate();
+  const auth = getAuth();
 
   const logToAccount = async (email, password) => {
-    const auth = getAuth();
-
     try {
       const res = await authApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
+
       navigate(ROUTES.HOME);
     } catch {
       notificationLogin();
@@ -57,7 +57,7 @@ const Login = () => {
             type={"password"}
           />
           <Link to={"/reset-password"} className={styles.forgotPassword}>
-            Forgot Password?
+            <div>Forgot Password?</div>
           </Link>
           <ButtonSubmitForm title={"Login"} formState={!formState.isValid} />
         </form>
