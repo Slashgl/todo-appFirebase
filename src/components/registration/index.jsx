@@ -1,45 +1,61 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
-import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { firestore } from "services/firebase";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { getUsers } from "store";
+import { useNavigate, Link } from "react-router-dom";
+import { changeUser, getUsers } from "store";
 import {
-  validation,
-  userRegistration,
   notificationSuccess,
   notificationError,
   getCollectionUsers,
+  validationRegister,
 } from "utils";
+import { ButtonSubmitForm } from "components";
+import { authApi } from "services";
 import Input from "./input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 
-const Registration = ({ firestore }) => {
+const Registration = () => {
+  const fireStore = firestore;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formOptions = validation();
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const validation = validationRegister();
+  const { register, handleSubmit, formState, reset } = useForm(validation);
   const { errors } = formState;
   const users = getUsers();
 
   useEffect(() => {
-    getCollectionUsers(firestore, dispatch);
-  }, [firestore]);
+    getCollectionUsers(fireStore, dispatch);
+  }, [fireStore]);
+
+  const userRegistration = async (email, password, dispatch, navigate) => {
+    const auth = getAuth();
+    try {
+      const res = await authApi.createUsers(auth, email, password);
+      const user = res.user;
+      await dispatch(changeUser(user));
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const checksForEmail = (data) => {
     if (!users.includes(data.email)) {
-      firestore.collection("users").add(data);
+      fireStore.collection("users").add(data);
       notificationSuccess();
     } else {
-      notificationError(data);
+      notificationError();
     }
   };
 
   const onSubmit = (data) => {
-    userRegistration(data.email, data.password, dispatch, navigate);
+    userRegistration(data.email, data.password, dispatch, navigate, reset);
     checksForEmail(data);
+    reset();
   };
 
   return (
@@ -47,22 +63,15 @@ const Registration = ({ firestore }) => {
       <div className={styles.registration}>
         <Header />
         <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
+          <Input register={register} name={"fullName"} errors={errors?.fullName?.message} />
           <Input
             register={register}
-            label={"Full Name"}
-            name={"fullName"}
-            errors={errors?.fullName?.message}
-          />
-          <Input
-            register={register}
-            label={"Email"}
             name={"email"}
             type={"email"}
             errors={errors?.email?.message}
           />
           <Input
             register={register}
-            label={"Password"}
             error={errors?.password?.message}
             name={"password"}
             type={"password"}
@@ -70,15 +79,12 @@ const Registration = ({ firestore }) => {
           />
           <Input
             register={register}
-            label={"Confirm Password"}
             name={"confirmPassword"}
             type={"password"}
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
           />
-          <button className={styles.button} type="submit" disabled={!formState.isValid}>
-            Register
-          </button>
+          <ButtonSubmitForm title={"Register"} formState={!formState.isValid} />
         </form>
         <div className={styles.singIn}>
           Already have an account? <Link to="/login">Sign In</Link>
