@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "routes";
 import { firestore } from "services/firebase";
 import { useDispatch } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addNewProject, changeUser } from "store";
 import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
-import { useNavigate } from "react-router-dom";
-import ROUTES from "../../routes";
 
 const HomePage = () => {
   const [isModalNewProject, setModalNewProject] = useState(false);
