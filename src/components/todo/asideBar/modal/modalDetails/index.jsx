@@ -17,7 +17,7 @@ const ModalDetails = ({ setModalDetails }) => {
   const onSubmit = (data) => editTodo(projects, activeTodoId, user, setModalDetails, data);
 
   return (
-    <ModalWrapper>
+    <ModalWrapper onClick={() => setModalDetails(false)}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.title}>Details</div>
         <ModalInput register={register} placeholder={"New Item"} name={"todo"} />

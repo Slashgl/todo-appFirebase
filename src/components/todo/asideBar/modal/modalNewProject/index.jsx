@@ -18,7 +18,7 @@ const ModalNewProject = ({ updateAsideBar, setModalNewProject }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={() => setModalNewProject(false)}>
       <div className={styles.modal}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <ModalInput register={register} name={"project"} placeholder={"New Project"} />

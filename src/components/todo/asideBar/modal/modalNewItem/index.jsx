@@ -20,7 +20,7 @@ const ModalNewItem = ({ setModalNewItem }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={() => setModalNewItem(false)}>
       <form className={styles.modal} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.title}>New Item</div>
         <ModalInput register={register} placeholder={"New Item"} name={"todo"} />
