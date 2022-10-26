@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getActiveProject, changeActiveTodoId } from "store";
-import ModalNewItem from "../modalNewItem";
-import ModalDetails from "../modalDetails";
+import ModalNewItem from "../modal/modalNewItem";
+import ModalDetails from "../modal/modalDetails";
 import styles from "./styles.module.scss";
 
 const BoardWeekDay = () => {
