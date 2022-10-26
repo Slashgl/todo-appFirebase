@@ -16,7 +16,7 @@ import { authApi } from "services";
 import ROUTES from "routes";
 import Input from "../inputRegistration";
 import Header from "./header";
-import styles from "../inputRegistration/styles.module.scss";
+import styles from "./styles.module.scss";
 
 const Registration = () => {
   const fireStore = firestore;

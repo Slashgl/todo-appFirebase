@@ -1,32 +1,32 @@
-@import "src/assets/variables/colors";
-@import "src/assets/mixin/media";
+@import "../../../assets/variables/colors";
+@import "../../../assets/mixin/media";
 
-.invalidFeedback {
-  margin: 10px 0 0 19px;
-  color: $tomato;
+.registration {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
 }
 
-span {
-  margin-left: 19px;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.input {
-  cursor: pointer;
-  width: 335px;
-  height: 50px;
-  padding-left: 19px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
+.wrapperForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include screen576 {
-    width: 100%;
+    padding: 0 10px;
   }
 }
 
-.invalidEmail {
-  margin-left: 19px;
-  color: $tomato;
+.singIn {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+
+  a {
+    color: $lightGreen;
+  }
 }
+
+

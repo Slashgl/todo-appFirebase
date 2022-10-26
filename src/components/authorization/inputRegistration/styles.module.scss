@@ -1,32 +1,32 @@
 @import "../../../assets/variables/colors";
 @import "../../../assets/mixin/media";
 
-.registration {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
+
+.invalidFeedback {
+  margin: 10px 0 0 19px;
+  color: $tomato;
 }
 
-.wrapperForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @include screen576 {
-    padding: 0 10px;
-  }
-}
-
-.singIn {
-  margin-top: 10px;
+span {
   font-weight: 600;
   font-size: 15px;
-  text-align: center;
+}
 
-  a {
-    color: $lightGreen;
+.input {
+  cursor: pointer;
+  width: 335px;
+  height: 50px;
+  padding-left: 19px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+
+  @include screen576 {
+    width: 100%;
   }
 }
 
-
+.invalidEmail {
+  margin-left: 19px;
+  color: $tomato;
+}
