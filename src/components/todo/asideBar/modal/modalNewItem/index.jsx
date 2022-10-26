@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { getUser, getActiveIndex, getProject } from "store";
 import { addNewTodo } from "services";
-import ModalInput from "../../componentsModal/modalInput";
-import SingleSelect from "../../componentsModal/singleSelect";
+import ModalInput from "../../../componentsModal/modalInput";
+import SingleSelect from "../../../componentsModal/singleSelect";
 import { validationDateTodo } from "utils";
 import styles from "./styles.module.scss";
 

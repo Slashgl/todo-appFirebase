@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { editProjects } from "services";
 import { getActiveIndex, getProject, getUser } from "store";
-import ModalInput from "../../componentsModal/modalInput";
+import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
 
 const ModalEditProject = ({ setModalEditProject }) => {

@@ -6,12 +6,12 @@ import Header from "./todo/header";
 import AsideBar from "./todo/asideBar";
 import BoardWeekDay from "./todo/boardWeekDay";
 import Footer from "./todo/footer";
-import ModalNewItem from "./todo/modal/modalNewItem";
+import ModalNewItem from "./todo/asideBar/modal/modalNewItem";
 import ModalInput from "./todo/componentsModal/modalInput";
 import ModalWrapper from "./todo/componentsModal/modalWrapper";
 import SingleSelect from "./todo/componentsModal/singleSelect";
-import ModalNewProject from "./todo/modal/modalNewProject";
-import ModalEditProject from "./todo/modal/modalEditProject";
+import ModalNewProject from "./todo/asideBar/modal/modalNewProject";
+import ModalEditProject from "./todo/asideBar/modal/modalEditProject";
 
 export {
   Registration,
