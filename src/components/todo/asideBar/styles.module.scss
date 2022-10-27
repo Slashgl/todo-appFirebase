@@ -8,6 +8,7 @@
 
   @include screen576 {
     position: absolute;
+    display: none;
     width: 100vw;
     height: 100vh;
   }
@@ -16,6 +17,10 @@
 .title {
   padding-top: 23px;
   text-align: center;
+
+  @include screen576 {
+    font-size: 28px;
+  }
 }
 
 .btnNewProject {

@@ -25,7 +25,7 @@ const Header = ({ setIsActiveAsideBar, isActiveAsideBar }) => {
         onClick={() => setIsActiveAsideBar(!isActiveAsideBar)}
       />
       <div className={styles.title}>
-        <img src={todoImg} alt="img" />
+        <img src={todoImg} alt="img" className={styles.headerIcon} />
         <h1>Your Todo</h1>
       </div>
       <button className={styles.logOut} onClick={() => logOut()}>
