@@ -18,7 +18,11 @@ const ModalDetails = ({ setModalDetails }) => {
 
   return (
     <ModalWrapper onClick={() => setModalDetails(false)}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles.title}>Details</div>
         <ModalInput register={register} placeholder={"New Item"} name={"todo"} />
         <ModalInput register={register} placeholder={"dd/mm/yy"} name={"date"} />

@@ -15,12 +15,14 @@ const ModalEditProject = ({ setModalEditProject }) => {
 
   return (
     <div className={styles.wrapper} onClick={() => setModalEditProject(false)}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.forEditProjects}>
-          <ModalInput register={register} placeholder={"Edit Project"} name={"rename"} />
-          <button className={styles.btnEdit}>Edit</button>
-        </form>
-      </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.forEditProjects}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <ModalInput register={register} placeholder={"Edit Project"} name={"rename"} />
+        <button className={styles.btnEdit}>Edit</button>
+      </form>
     </div>
   );
 };
