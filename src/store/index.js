@@ -17,6 +17,8 @@ import {
   getActiveTodoId,
 } from "./selectors/newProject";
 
+import { loadAllProjects } from "./actions/asyncAction/loadAllProjects";
+
 export {
   store,
   userReducer,
@@ -36,4 +38,5 @@ export {
   getActiveProject,
   changeActiveTodoId,
   getActiveTodoId,
+  loadAllProjects,
 };

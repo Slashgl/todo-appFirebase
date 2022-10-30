@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { getUser, getActiveIndex, getProject } from "store";
 import { addNewTodo } from "services";
+import { loadAllProjects } from "store";
 import ModalInput from "../../../componentsModal/modalInput";
 import SingleSelect from "../../../componentsModal/singleSelect";
 import { validationDateTodo } from "utils";
@@ -17,6 +18,7 @@ const ModalNewItem = ({ setModalNewItem }) => {
   const onSubmit = (data) => {
     addNewTodo(projects, activeIndex, data, user, setModalNewItem);
     reset();
+    loadAllProjects();
   };
 
   return (

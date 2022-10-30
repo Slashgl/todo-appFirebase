@@ -24,18 +24,32 @@ const AsideBar = ({
   };
 
   return (
-    <div className={styles.AsideBar} style={isActiveAsideBar ? { display: "block" } : null}>
+    <div className={styles.AsideBar} hidden={isActiveAsideBar ? { left: 0 } : null}>
       <h1 className={styles.title}>Projects</h1>
       <button className={styles.btnNewProject} onClick={() => setModalNewProject(true)}>
         New Project
       </button>
       <ul className={styles.weeks}>
         {projects?.project?.map((project, index) => (
-          <li key={project.id} className={styles.item} onClick={() => handleClick(project, index)}>
+          <li
+            key={project.id}
+            className={styles.item}
+            onClick={() => {
+              handleClick(project, index);
+              setIsActiveAsideBar(!isActiveAsideBar);
+            }}
+          >
             <div className={styles.subTitle} onClick={() => setIsActiveAsideBar(false)}>
               {project.data.project}
             </div>
-            <button className={styles.options} onClick={() => setModalEditProject(true)}>
+            <button
+              className={styles.options}
+              onClick={(event) => {
+                event.stopPropagation();
+                handleClick(project, index);
+                setModalEditProject(true);
+              }}
+            >
               <img src={editProjectImg} alt="img" />
             </button>
           </li>

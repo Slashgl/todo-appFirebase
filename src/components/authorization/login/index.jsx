@@ -16,7 +16,7 @@ import styles from "./styles.module.scss";
 const Login = () => {
   const dispatch = useDispatch();
   const validation = validationLogin();
-  const { register, handleSubmit, formState, reset } = useForm(validation);
+  const { register, handleSubmit, formState } = useForm(validation);
   const { errors } = formState;
   const navigate = useNavigate();
   const auth = getAuth();
@@ -35,7 +35,6 @@ const Login = () => {
 
   const onSubmit = (data) => {
     logToAccount(data.email, data.password);
-    reset();
   };
 
   return (

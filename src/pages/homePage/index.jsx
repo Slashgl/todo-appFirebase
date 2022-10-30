@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "routes";
-import { firestore } from "services/firebase";
+import { loadAllProjects } from "store";
 import { useDispatch } from "react-redux";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { addNewProject, changeUser } from "store";
+import { getAuth } from "firebase/auth";
 import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
 
@@ -14,7 +13,6 @@ const HomePage = () => {
   const [isModalEditProject, setModalEditProject] = useState(false);
   const auth = getAuth();
   const dispatch = useDispatch();
-  const fireStore = firestore;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,37 +21,26 @@ const HomePage = () => {
     }
   });
 
-  const updateAsideBar = () => {
-    return onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        await fireStore
-          .collection("projects")
-          .doc(user.uid)
-          .get()
-          .then((doc) => dispatch(addNewProject(doc.data())));
-        dispatch(changeUser(user));
-      }
-    });
-  };
-
   useEffect(() => {
-    updateAsideBar();
-  });
+    dispatch(loadAllProjects());
+  }, []);
 
   return (
     <div className={styles.homePage}>
       <Header setIsActiveAsideBar={setIsActiveAsideBar} isActiveAsideBar={isActiveAsideBar} />
-      <div className={styles.main}>
+      <div className={styles.main} style={isActiveAsideBar ? { gridTemplateColumns: "1fr" } : null}>
         <AsideBar
           setIsActiveAsideBar={setIsActiveAsideBar}
           isActiveAsideBar={isActiveAsideBar}
           setModalNewProject={setModalNewProject}
           isModalNewProject={isModalNewProject}
-          updateAsideBar={updateAsideBar}
           setModalEditProject={setModalEditProject}
           isModalEditProject={isModalEditProject}
         />
-        <BoardWeekDay />
+        <BoardWeekDay
+          isActiveAsideBar={isActiveAsideBar}
+          setIsActiveAsideBar={setIsActiveAsideBar}
+        />
       </div>
       <Footer />
     </div>

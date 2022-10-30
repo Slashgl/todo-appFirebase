@@ -11,7 +11,11 @@ const ModalEditProject = ({ setModalEditProject }) => {
   const activeIndex = getActiveIndex();
   const user = getUser();
 
-  const onSubmit = (data) => editProjects(projects, activeIndex, user, setModalEditProject, data);
+  const onSubmit = (data) => {
+    console.log(projects);
+    console.log(activeIndex);
+    editProjects(projects, activeIndex, user, setModalEditProject, data);
+  };
 
   return (
     <div className={styles.wrapper} onClick={() => setModalEditProject(false)}>
