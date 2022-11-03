@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <div className={styles.homePage}>
       <Header setIsActiveAsideBar={setIsActiveAsideBar} isActiveAsideBar={isActiveAsideBar} />
-      <div className={styles.main} style={isActiveAsideBar ? { gridTemplateColumns: "1fr" } : null}>
+      <div className={isActiveAsideBar ? styles.hiddenAsideBar : styles.main}>
         <AsideBar
           setIsActiveAsideBar={setIsActiveAsideBar}
           isActiveAsideBar={isActiveAsideBar}
