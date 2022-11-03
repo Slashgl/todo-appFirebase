@@ -35,7 +35,7 @@ const BoardWeekDay = () => {
     <div className={styles.board}>
       {(activeProject && (
         <>
-          <h1 className={styles.title}>{activeProject.data.project}</h1>
+          <div className={styles.title}>{activeProject.data.project}</div>
           <button className={styles.newItem} onClick={() => setModalNewItem(true)}>
             New Item
           </button>

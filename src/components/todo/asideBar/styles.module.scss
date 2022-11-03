@@ -10,7 +10,7 @@
 .title {
   padding-top: 23px;
   text-align: center;
-
+  font-size: 32px;
   @include screen576 {
     font-size: 28px;
   }

@@ -36,7 +36,7 @@ const AsideBar = ({
 
   return (
     <div className={styles.AsideBar} hidden={isActiveAsideBar ? { left: 0 } : null}>
-      <h1 className={styles.title}>Projects</h1>
+      <div className={styles.title}>Projects</div>
       <button className={styles.btnNewProject} onClick={() => setModalNewProject(true)}>
         New Project
       </button>
