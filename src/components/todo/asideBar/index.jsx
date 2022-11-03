@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeActiveIndex, changeActiveProject, getProject } from "store";
 import ModalEditProject from "./modal/modalEditProject";
@@ -12,9 +12,8 @@ const AsideBar = ({
   updateAsideBar,
   isActiveAsideBar,
   setIsActiveAsideBar,
-  setModalEditProject,
-  isModalEditProject,
 }) => {
+  const [isModalEditProject, setModalEditProject] = useState(false);
   const projects = getProject();
   const dispatch = useDispatch();
 

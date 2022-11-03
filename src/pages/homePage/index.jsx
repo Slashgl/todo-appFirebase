@@ -8,9 +8,8 @@ import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
 
 const HomePage = () => {
-  const [isModalNewProject, setModalNewProject] = useState(false);
   const [isActiveAsideBar, setIsActiveAsideBar] = useState(false);
-  const [isModalEditProject, setModalEditProject] = useState(false);
+
   const auth = getAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,14 +28,7 @@ const HomePage = () => {
     <div className={styles.homePage}>
       <Header setIsActiveAsideBar={setIsActiveAsideBar} isActiveAsideBar={isActiveAsideBar} />
       <div className={isActiveAsideBar ? styles.hiddenAsideBar : styles.main}>
-        <AsideBar
-          setIsActiveAsideBar={setIsActiveAsideBar}
-          isActiveAsideBar={isActiveAsideBar}
-          setModalNewProject={setModalNewProject}
-          isModalNewProject={isModalNewProject}
-          setModalEditProject={setModalEditProject}
-          isModalEditProject={isModalEditProject}
-        />
+        <AsideBar setIsActiveAsideBar={setIsActiveAsideBar} isActiveAsideBar={isActiveAsideBar} />
         <BoardWeekDay
           isActiveAsideBar={isActiveAsideBar}
           setIsActiveAsideBar={setIsActiveAsideBar}
