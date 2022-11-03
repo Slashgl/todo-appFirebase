@@ -28,7 +28,7 @@ const Header = ({ setIsActiveAsideBar, isActiveAsideBar }) => {
         <img src={todoImg} alt="img" className={styles.headerIcon} />
         <h1>Your Todo</h1>
       </div>
-      <button className={styles.logOut} onClick={() => logOut()}>
+      <button className={styles.logOut} onClick={logOut}>
         LogOut
       </button>
     </div>
