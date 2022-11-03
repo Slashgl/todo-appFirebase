@@ -55,7 +55,7 @@ const Login = () => {
             name={"password"}
             type={"password"}
           />
-          <Link to={"/reset-password"} className={styles.forgotPassword}>
+          <Link to={ROUTES.NEW_PASSWORD} className={styles.forgotPassword}>
             <div>Forgot Password?</div>
           </Link>
           <ButtonSubmitForm title={"Login"} formState={!formState.isValid} />
