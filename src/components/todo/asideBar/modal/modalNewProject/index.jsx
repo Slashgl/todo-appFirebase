@@ -1,6 +1,6 @@
 import React from "react";
 import { setProjectAsideBar } from "services";
-import { changeModalNewProject, getProject, getUser } from "store";
+import { changeModalNewProject, getProject, getUser, loadAllProjects } from "store";
 import { useForm } from "react-hook-form";
 import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
@@ -17,6 +17,7 @@ const ModalNewProject = ({ updateAsideBar }) => {
     if (data.project !== "") {
       setProjectAsideBar(user, project, data);
     }
+    loadAllProjects();
     dispatch(changeModalNewProject());
   };
 

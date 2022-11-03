@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ROUTES from "routes";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
 
 const HomePage = () => {
-  const [isModalEditProject, setModalEditProject] = useState(false);
   const auth = getAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,10 +27,7 @@ const HomePage = () => {
     <div className={styles.homePage}>
       <Header />
       <div className={isAsideBar ? styles.hiddenAsideBar : styles.main}>
-        <AsideBar
-          setModalEditProject={setModalEditProject}
-          isModalEditProject={isModalEditProject}
-        />
+        <AsideBar />
         <BoardWeekDay />
       </div>
       <Footer />

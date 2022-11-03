@@ -46,15 +46,15 @@ const editProjects = (projects, activeIndex, dispatch, user, data) => {
 };
 
 const changeCheckedTodo = (projects, user, activeTodoId, dispatch) => {
-  return projects.project.map((project) => {
+  projects.project.map((project) => {
     project.todos.map((todo) => {
       if (todo.id === activeTodoId) {
         todo.checked = !todo.checked;
       }
     });
-    dispatch(changeModalDetails());
     firestore.collection("projects").doc(user.uid).set(projects);
   });
+  dispatch(changeModalDetails());
 };
 
 const deleteTodo = (projects, activeTodoId, user, dispatch) => {
