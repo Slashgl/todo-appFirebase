@@ -2,7 +2,7 @@ import React from "react";
 import ROUTES from "routes";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeAsideBar, deleteUser } from "store";
+import { changeActiveProject, changeAsideBar, deleteUser } from "store";
 import { todoImg, menuBtn } from "assets";
 import styles from "./styles.module.scss";
 
@@ -10,10 +10,14 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const clearingStore = () => {
+    dispatch(changeActiveProject(null));
+  };
+
   const logOut = () => {
     dispatch(deleteUser());
     navigate(ROUTES.LOGIN);
-    window.location.reload();
+    clearingStore();
   };
 
   return (
