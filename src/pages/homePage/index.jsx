@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ROUTES from "routes";
-import { loadAllProjects } from "store";
-import { useDispatch } from "react-redux";
 import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loadAllProjects } from "store";
 import { Header, AsideBar, BoardWeekDay, Footer } from "components";
 import styles from "./styles.module.scss";
 

@@ -1,8 +1,8 @@
 import React from "react";
+import ROUTES from "routes";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteUser } from "store";
-import ROUTES from "routes";
 import { todoImg, menuBtn } from "assets";
 import styles from "./styles.module.scss";
 
