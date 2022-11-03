@@ -23,6 +23,17 @@ const AsideBar = ({
     dispatch(changeActiveProject(project));
   };
 
+  const hiddenAsideBarMobile = () => {
+    if (window.screen.width < 577) {
+      setIsActiveAsideBar(!isActiveAsideBar);
+    }
+  };
+
+  const handleClickEditProject = (event) => {
+    event.stopPropagation();
+    setModalEditProject(true);
+  };
+
   return (
     <div className={styles.AsideBar} hidden={isActiveAsideBar ? { left: 0 } : null}>
       <h1 className={styles.title}>Projects</h1>
@@ -36,7 +47,7 @@ const AsideBar = ({
             className={styles.item}
             onClick={() => {
               handleClick(project, index);
-              setIsActiveAsideBar(!isActiveAsideBar);
+              hiddenAsideBarMobile();
             }}
           >
             <div className={styles.subTitle} onClick={() => setIsActiveAsideBar(false)}>
@@ -45,9 +56,8 @@ const AsideBar = ({
             <button
               className={styles.options}
               onClick={(event) => {
-                event.stopPropagation();
                 handleClick(project, index);
-                setModalEditProject(true);
+                handleClickEditProject(event);
               }}
             >
               <img src={editProjectImg} alt="img" />

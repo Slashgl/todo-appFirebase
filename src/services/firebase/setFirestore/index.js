@@ -1,4 +1,4 @@
-import { firestore } from "services/firebase";
+import { firestore } from "services/firebase/index";
 
 const addNewTodo = (projects, activeIndex, data, user, setModalNewItem) => {
   projects?.project?.map((project, index) => {

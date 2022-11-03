@@ -9,10 +9,11 @@ const ModalNewProject = ({ updateAsideBar, setModalNewProject }) => {
   const { register, handleSubmit } = useForm();
   const user = getUser();
   const project = getProject() || [];
+  console.log(project);
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     if (data.project !== "") {
-      await setProjectAsideBar(user, project, data);
+      setProjectAsideBar(user, project, data);
     }
     setModalNewProject(false);
   };

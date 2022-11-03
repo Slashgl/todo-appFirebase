@@ -6,7 +6,7 @@ import {
   deleteTodo,
   editProjects,
   setProjectAsideBar,
-} from "./endpoint/setFirestore";
+} from "./firebase/setFirestore";
 
 export {
   authApi,
