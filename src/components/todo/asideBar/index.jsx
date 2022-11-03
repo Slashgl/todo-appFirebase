@@ -60,7 +60,7 @@ const AsideBar = ({
                 handleClickEditProject(event);
               }}
             >
-              <img src={editProjectImg} alt="img" />
+              <img src={editProjectImg} alt={"img"} />
             </button>
           </li>
         ))}
