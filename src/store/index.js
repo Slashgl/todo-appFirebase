@@ -9,13 +9,22 @@ import {
   changeActiveIndex,
   changeActiveProject,
   changeActiveTodoId,
+  changeModalNewProject,
+  changeAsideBar,
+  changeEditProject,
 } from "./reducers/newProject";
 import {
   getProject,
   getActiveIndex,
   getActiveProject,
   getActiveTodoId,
+  getIsModalNewProject,
+  getIsAsideBar,
+  getIsEditProject,
 } from "./selectors/newProject";
+
+import { getIsModalNewItem, getIsModalDetails } from "./selectors/newItemTodo";
+import { changeModalNewItem, changeModalDetails } from "./reducers/newItemTodo";
 
 import { loadAllProjects } from "./actions/asyncAction/loadAllProjects";
 
@@ -39,4 +48,14 @@ export {
   changeActiveTodoId,
   getActiveTodoId,
   loadAllProjects,
+  changeModalNewProject,
+  getIsModalNewProject,
+  changeAsideBar,
+  getIsAsideBar,
+  changeEditProject,
+  getIsEditProject,
+  getIsModalNewItem,
+  changeModalNewItem,
+  changeModalDetails,
+  getIsModalDetails,
 };

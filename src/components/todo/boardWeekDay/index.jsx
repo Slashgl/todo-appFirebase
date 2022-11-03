@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { getActiveProject, changeActiveTodoId } from "store";
+import {
+  getActiveProject,
+  changeActiveTodoId,
+  changeModalNewItem,
+  getIsModalNewItem,
+  getIsModalDetails,
+  changeModalDetails,
+} from "store";
 import ModalNewItem from "../asideBar/modal/modalNewItem";
 import ModalDetails from "../asideBar/modal/modalDetails";
 import styles from "./styles.module.scss";
 
 const BoardWeekDay = () => {
-  const [isModalNewItem, setModalNewItem] = useState(false);
-  const [isModalDetails, setModalDetails] = useState(false);
   const activeProject = getActiveProject();
   const dispatch = useDispatch();
+  const isModalNewItem = getIsModalNewItem();
+  const isModalDetails = getIsModalDetails();
 
   const setPriorityTodo = (todo) => {
     if (todo.priority === "High Priority") {
@@ -36,7 +43,7 @@ const BoardWeekDay = () => {
       {(activeProject && (
         <>
           <div className={styles.title}>{activeProject.data.project}</div>
-          <button className={styles.newItem} onClick={() => setModalNewItem(true)}>
+          <button className={styles.newItem} onClick={() => dispatch(changeModalNewItem())}>
             New Item
           </button>
           <ul className={styles.todos}>
@@ -48,7 +55,7 @@ const BoardWeekDay = () => {
               >
                 <div>{todo.todo}</div>
                 <div>{todo.date}</div>
-                <button className={styles.details} onClick={() => setModalDetails(true)}>
+                <button className={styles.details} onClick={() => dispatch(changeModalDetails())}>
                   Details
                 </button>
               </li>
@@ -56,8 +63,8 @@ const BoardWeekDay = () => {
           </ul>
         </>
       )) || <div className={styles.title}>Create New Todo</div>}
-      {isModalNewItem && <ModalNewItem setModalNewItem={setModalNewItem} />}
-      {isModalDetails && <ModalDetails setModalDetails={setModalDetails} />}
+      {isModalNewItem && <ModalNewItem />}
+      {isModalDetails && <ModalDetails />}
     </div>
   );
 };

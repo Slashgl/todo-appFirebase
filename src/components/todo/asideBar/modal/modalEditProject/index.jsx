@@ -1,24 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { editProjects } from "services";
-import { getActiveIndex, getProject, getUser } from "store";
+import { getActiveIndex, getProject, getUser, changeEditProject } from "store";
 import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
 
-const ModalEditProject = ({ setModalEditProject }) => {
+const ModalEditProject = () => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
   const projects = getProject();
   const activeIndex = getActiveIndex();
   const user = getUser();
 
   const onSubmit = (data) => {
-    console.log(projects);
-    console.log(activeIndex);
-    editProjects(projects, activeIndex, user, setModalEditProject, data);
+    editProjects(projects, activeIndex, dispatch, user, data);
   };
 
   return (
-    <div className={styles.wrapper} onClick={() => setModalEditProject(false)}>
+    <div className={styles.wrapper} onClick={() => dispatch(changeEditProject())}>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.forEditProjects}

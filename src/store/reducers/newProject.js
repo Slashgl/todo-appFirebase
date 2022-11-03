@@ -7,6 +7,12 @@ import {
   SET_ACTIVE_PROJECT,
   SET_ACTIVE_TODO_ID,
   setActiveTodoId,
+  toggleModalNewProject,
+  TOGGLE_MODAL_NEW_PROJECT,
+  TOGGLE_ASIDE_BAR,
+  toggleAsideBar,
+  TOGGLE_MODAL_EDIT_PROJECT,
+  toggleModalEditProject,
 } from "../actions/setNewProject";
 
 const initialState = {
@@ -14,6 +20,9 @@ const initialState = {
   activeIndex: null,
   activeProject: null,
   activeTodoId: null,
+  isModalNewProject: false,
+  isAsideBar: false,
+  isModalEditProject: false,
 };
 
 const addNewProject = (project) => (dispatch) => {
@@ -30,6 +39,18 @@ const changeActiveTodoId = (index) => (dispatch) => {
 
 const changeActiveProject = (project) => (dispatch) => {
   dispatch(setActiveProject(project));
+};
+
+const changeModalNewProject = () => (dispatch) => {
+  dispatch(toggleModalNewProject());
+};
+
+const changeAsideBar = () => (dispatch) => {
+  dispatch(toggleAsideBar());
+};
+
+const changeEditProject = () => (dispatch) => {
+  dispatch(toggleModalEditProject());
 };
 
 const projectReducer = (state = initialState, action) => {
@@ -54,6 +75,21 @@ const projectReducer = (state = initialState, action) => {
         ...state,
         activeProject: action.payload,
       };
+    case TOGGLE_MODAL_NEW_PROJECT:
+      return {
+        ...state,
+        isModalNewProject: !state.isModalNewProject,
+      };
+    case TOGGLE_ASIDE_BAR:
+      return {
+        ...state,
+        isAsideBar: !state.isAsideBar,
+      };
+    case TOGGLE_MODAL_EDIT_PROJECT:
+      return {
+        ...state,
+        isModalEditProject: !state.isModalEditProject,
+      };
     default:
       return state;
   }
@@ -65,4 +101,7 @@ export {
   changeActiveIndex,
   changeActiveProject,
   changeActiveTodoId,
+  changeModalNewProject,
+  changeAsideBar,
+  changeEditProject,
 };

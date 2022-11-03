@@ -1,14 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { getUser, getActiveIndex, getProject } from "store";
+import { getUser, getActiveIndex, getProject, changeModalNewItem } from "store";
 import { addNewTodo } from "services";
+import { validationDateTodo } from "utils";
 import { loadAllProjects } from "store";
 import ModalInput from "../../../componentsModal/modalInput";
 import SingleSelect from "../../../componentsModal/singleSelect";
-import { validationDateTodo } from "utils";
+
 import styles from "./styles.module.scss";
 
-const ModalNewItem = ({ setModalNewItem }) => {
+const ModalNewItem = () => {
+  const dispatch = useDispatch();
   const validation = validationDateTodo();
   const { register, handleSubmit, reset, formState } = useForm(validation);
   const activeIndex = getActiveIndex();
@@ -16,13 +19,13 @@ const ModalNewItem = ({ setModalNewItem }) => {
   const projects = getProject();
 
   const onSubmit = (data) => {
-    addNewTodo(projects, activeIndex, data, user, setModalNewItem);
-    reset();
+    addNewTodo(projects, activeIndex, data, user, dispatch);
     loadAllProjects();
+    reset();
   };
 
   return (
-    <div className={styles.wrapper} onClick={() => setModalNewItem(false)}>
+    <div className={styles.wrapper} onClick={() => dispatch(changeModalNewItem())}>
       <form
         className={styles.modal}
         onSubmit={handleSubmit(onSubmit)}

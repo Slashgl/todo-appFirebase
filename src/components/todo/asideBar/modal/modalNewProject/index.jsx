@@ -1,13 +1,15 @@
 import React from "react";
 import { setProjectAsideBar } from "services";
-import { getProject, getUser } from "store";
+import { changeModalNewProject, getProject, getUser } from "store";
 import { useForm } from "react-hook-form";
 import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
+import { useDispatch } from "react-redux";
 
-const ModalNewProject = ({ updateAsideBar, setModalNewProject }) => {
+const ModalNewProject = ({ updateAsideBar }) => {
   const { register, handleSubmit } = useForm();
   const user = getUser();
+  const dispatch = useDispatch();
   const project = getProject() || [];
   console.log(project);
 
@@ -15,11 +17,11 @@ const ModalNewProject = ({ updateAsideBar, setModalNewProject }) => {
     if (data.project !== "") {
       setProjectAsideBar(user, project, data);
     }
-    setModalNewProject(false);
+    dispatch(changeModalNewProject());
   };
 
   return (
-    <div className={styles.wrapper} onClick={() => setModalNewProject(false)}>
+    <div className={styles.wrapper} onClick={() => dispatch(changeModalNewProject())}>
       <div className={styles.modal}>
         <form
           className={styles.form}

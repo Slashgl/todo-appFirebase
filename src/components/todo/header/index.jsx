@@ -2,11 +2,11 @@ import React from "react";
 import ROUTES from "routes";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteUser } from "store";
+import { changeAsideBar, deleteUser } from "store";
 import { todoImg, menuBtn } from "assets";
 import styles from "./styles.module.scss";
 
-const Header = ({ setIsActiveAsideBar, isActiveAsideBar }) => {
+const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const Header = ({ setIsActiveAsideBar, isActiveAsideBar }) => {
         src={menuBtn}
         className={styles.menu}
         alt="img"
-        onClick={() => setIsActiveAsideBar(!isActiveAsideBar)}
+        onClick={() => dispatch(changeAsideBar())}
       />
       <div className={styles.title}>
         <img src={todoImg} alt="img" className={styles.headerIcon} />
