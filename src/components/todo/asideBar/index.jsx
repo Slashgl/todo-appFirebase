@@ -18,7 +18,7 @@ const AsideBar = () => {
   const isEditProject = getIsEditProject();
 
   return (
-    <div className={styles.AsideBar} hidden={isAsideBar ? { left: 0 } : null}>
+    <div className={isAsideBar ? styles.hidden : styles.AsideBar}>
       <div className={styles.title}>Projects</div>
       <button className={styles.btnNewProject} onClick={() => dispatch(changeModalNewProject())}>
         New Project
