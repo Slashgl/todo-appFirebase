@@ -50,7 +50,7 @@ const BoardWeekDay = () => {
             {sortingByDate(activeProject.todos).map((todo, index) => (
               <li
                 key={index}
-                className={(todo.checked && styles.completed) || setPriorityTodo(todo)}
+                className={todo.checked ? styles.completed : setPriorityTodo(todo)}
                 onClick={() => handleClick(todo)}
               >
                 <div>{todo.todo}</div>
