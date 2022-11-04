@@ -40,7 +40,7 @@ const NewPassword = () => {
       <Header />
       <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         <Input register={register} label={"Email"} name={"email"} />
-        <Link className={styles.signIn} to={"/login"}>
+        <Link className={styles.signIn} to={ROUTES.LOGIN}>
           Sign-In
         </Link>
         <ButtonSubmitForm formState={!formState.isValid} title={"Reset Password"} />

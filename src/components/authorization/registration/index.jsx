@@ -72,7 +72,7 @@ const Registration = () => {
           <ButtonSubmitForm title={"Register"} formState={!formState.isValid} />
         </form>
         <div className={styles.singIn}>
-          Already have an account? <Link to="/login">Sign In</Link>
+          Already have an account? <Link to={ROUTES.LOGIN}>Sign In</Link>
         </div>
       </div>
       <ToastContainer position={"top-right"} />

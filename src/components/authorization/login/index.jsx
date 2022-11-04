@@ -61,7 +61,7 @@ const Login = () => {
           <ButtonSubmitForm title={"Login"} formState={!formState.isValid} />
         </form>
         <div className={styles.footer}>
-          Don’t have an account? <Link to={"/register"}>Sign Up</Link>
+          Don’t have an account? <Link to={ROUTES.REGISTER}>Sign Up</Link>
         </div>
       </div>
       <ToastContainer position={"top-right"} />
