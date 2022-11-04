@@ -25,9 +25,15 @@ const ItemProject = () => {
     }
   };
 
-  const handleClickEditProject = (event) => {
+  const handleClickEditProject = (event, project, index) => {
     event.stopPropagation();
     dispatch(changeEditProject());
+    handleClick(project, index);
+  };
+
+  const handleClickProject = (project, index) => {
+    handleClick(project, index);
+    hiddenAsideBarMobile();
   };
 
   return (
@@ -37,16 +43,14 @@ const ItemProject = () => {
           key={project.id}
           className={styles.item}
           onClick={() => {
-            handleClick(project, index);
-            hiddenAsideBarMobile();
+            handleClickProject(project, index);
           }}
         >
           <div className={styles.subTitle}>{project.data.project}</div>
           <button
             className={styles.options}
             onClick={(event) => {
-              handleClick(project, index);
-              handleClickEditProject(event);
+              handleClickEditProject(event, project, index);
             }}
           >
             <img src={editProjectImg} alt={"edit"} />
