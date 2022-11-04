@@ -49,7 +49,7 @@ const ItemProject = () => {
               handleClickEditProject(event);
             }}
           >
-            <img src={editProjectImg} alt={"img"} />
+            <img src={editProjectImg} alt={"edit"} />
           </button>
         </li>
       ))}

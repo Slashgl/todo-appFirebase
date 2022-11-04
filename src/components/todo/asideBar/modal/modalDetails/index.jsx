@@ -31,7 +31,7 @@ const ModalDetails = () => {
         <SingleSelect register={register} />
         <textarea {...register("description")} className={styles.description} />
         <button className={styles.save}>
-          <img src={saveImg} alt={"img"} />
+          <img src={saveImg} alt={"save"} />
           <div>Save</div>
         </button>
       </form>
@@ -39,7 +39,7 @@ const ModalDetails = () => {
         className={styles.checked}
         onClick={() => changeCheckedTodo(projects, user, activeTodoId, dispatch)}
       >
-        <img src={checkedImg} alt={"img"} />
+        <img src={checkedImg} alt={"checked"} />
         Mark Done/Not Done
       </button>
       <button
@@ -47,7 +47,7 @@ const ModalDetails = () => {
         type={"button"}
         onClick={() => deleteTodo(projects, activeTodoId, user, dispatch)}
       >
-        <img src={deleteImg} alt={"img"} />
+        <img src={deleteImg} alt={"delete"} />
         Delete
       </button>
     </ModalWrapper>

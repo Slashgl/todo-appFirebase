@@ -25,11 +25,11 @@ const Header = () => {
       <img
         src={menuBtn}
         className={styles.menu}
-        alt="img"
+        alt="menu"
         onClick={() => dispatch(changeAsideBar())}
       />
       <div className={styles.title}>
-        <img src={todoImg} alt="img" className={styles.headerIcon} />
+        <img src={todoImg} alt="todo" className={styles.headerIcon} />
         <h1>Your Todo</h1>
       </div>
       <button className={styles.logOut} onClick={logOut}>
