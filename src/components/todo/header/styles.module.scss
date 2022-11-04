@@ -57,7 +57,9 @@
   }
 }
 
-.h1 {
+.title {
+  font-size: 38px;
+
   @include screen576 {
     font-size: 28px;
   }

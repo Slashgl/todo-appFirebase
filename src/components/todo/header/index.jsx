@@ -30,7 +30,7 @@ const Header = () => {
       />
       <div className={styles.title}>
         <img src={todoImg} alt="todo" className={styles.headerIcon} />
-        <h1>Your Todo</h1>
+        <h1 className={styles.title}>Your Todo</h1>
       </div>
       <button className={styles.logOut} onClick={logOut}>
         LogOut
