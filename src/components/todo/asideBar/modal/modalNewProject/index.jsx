@@ -6,12 +6,11 @@ import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
 
-const ModalNewProject = ({ updateAsideBar }) => {
+const ModalNewProject = () => {
   const { register, handleSubmit } = useForm();
   const user = getUser();
   const dispatch = useDispatch();
   const project = getProject() || [];
-  console.log(project);
 
   const onSubmit = (data) => {
     if (data.project !== "") {
@@ -30,9 +29,7 @@ const ModalNewProject = ({ updateAsideBar }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <ModalInput register={register} name={"project"} placeholder={"New Project"} />
-          <button className={styles.btnProject} onClick={updateAsideBar}>
-            Add
-          </button>
+          <button className={styles.btnProject}>Add</button>
         </form>
       </div>
     </div>

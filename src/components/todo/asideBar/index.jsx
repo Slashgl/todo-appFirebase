@@ -11,7 +11,7 @@ import ModalEditProject from "./modal/modalEditProject";
 import ModalNewProject from "./modal/modalNewProject";
 import styles from "./styles.module.scss";
 
-const AsideBar = ({ updateAsideBar }) => {
+const AsideBar = () => {
   const dispatch = useDispatch();
   const isModalNewProject = getIsModalNewProject();
   const isAsideBar = getIsAsideBar();
@@ -24,7 +24,7 @@ const AsideBar = ({ updateAsideBar }) => {
         New Project
       </button>
       <ItemProject />
-      {isModalNewProject && <ModalNewProject updateAsideBar={updateAsideBar} />}
+      {isModalNewProject && <ModalNewProject />}
       {isEditProject && <ModalEditProject />}
     </div>
   );

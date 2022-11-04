@@ -1,14 +1,14 @@
 import React from "react";
+import ROUTES from "routes";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toast";
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { validationLogin, notificationLogin } from "utils";
-import ButtonSubmitForm from "../buttonSubmitForm";
-import { authApi } from "services";
 import { changeUser } from "store";
-import ROUTES from "routes";
+import { validationLogin, notificationLogin } from "utils";
+import { authApi } from "services";
+import ButtonSubmitForm from "../buttonSubmitForm";
 import Header from "./header";
 import Input from "../inputLogin";
 import styles from "./styles.module.scss";

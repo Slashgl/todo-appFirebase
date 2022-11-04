@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import ROUTES from "routes";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toast";
 import { getAuth } from "firebase/auth";
 import { firestore } from "services/firebase";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
+import { authApi } from "services";
 import {
   getCollectionUsers,
   notificationError,
@@ -12,8 +14,6 @@ import {
   validationRegister,
 } from "utils";
 import ButtonSubmitForm from "../buttonSubmitForm";
-import { authApi } from "services";
-import ROUTES from "routes";
 import Input from "../inputRegistration";
 import Header from "./header";
 import styles from "./styles.module.scss";
