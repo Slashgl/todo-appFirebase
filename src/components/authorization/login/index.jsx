@@ -26,7 +26,6 @@ const Login = () => {
       const res = await authApi.signIn(auth, email, password);
       const user = res.user;
       await dispatch(changeUser(user));
-
       navigate(ROUTES.HOME);
     } catch {
       notificationLogin();
