@@ -35,7 +35,6 @@ const ModalDetails = () => {
           <div>Save</div>
         </button>
       </form>
-
       <button
         className={styles.checked}
         onClick={() => changeCheckedTodo(projects, user, activeTodoId, dispatch)}
@@ -45,6 +44,7 @@ const ModalDetails = () => {
       </button>
       <button
         className={styles.delete}
+        type={"button"}
         onClick={() => deleteTodo(projects, activeTodoId, user, dispatch)}
       >
         <img src={deleteImg} alt={"img"} />

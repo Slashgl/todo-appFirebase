@@ -45,7 +45,7 @@ const editProjects = (projects, activeIndex, dispatch, user, data) => {
   dispatch(changeEditProject());
 };
 
-const changeCheckedTodo = (projects, user, activeTodoId, dispatch) => {
+const changeCheckedTodo = (projects, user, activeTodoId) => {
   projects.project.map((project) => {
     project.todos.map((todo) => {
       if (todo.id === activeTodoId) {
@@ -54,16 +54,14 @@ const changeCheckedTodo = (projects, user, activeTodoId, dispatch) => {
     });
     firestore.collection("projects").doc(user.uid).set(projects);
   });
-  dispatch(changeModalDetails());
 };
 
-const deleteTodo = (projects, activeTodoId, user, dispatch) => {
+const deleteTodo = (projects, activeTodoId, user) => {
   projects.project.map((project) => {
     const filterArr = project.todos.filter((todo) => todo.id !== activeTodoId);
     return (project.todos = filterArr);
   });
   firestore.collection("projects").doc(user.uid).set(projects);
-  dispatch(changeModalDetails());
 };
 
 const setProjectAsideBar = async (user, project, data) => {
