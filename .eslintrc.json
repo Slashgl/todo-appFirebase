@@ -14,7 +14,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react", "simple-import-sort", "import"],
+    "plugins": ["react"],
     "rules": {
         "react/prop-types": 0,
         "quotes": [
@@ -24,9 +24,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "import/order": ["error", {
-            "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"]
-        }]
+        ]
     }
 }

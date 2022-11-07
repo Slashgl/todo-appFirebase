@@ -8,10 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { changeUser } from "store";
 import { validationLogin, notificationLogin } from "utils";
 import { authApi } from "services";
-import { logoLogin } from "assets";
 import Header from "../header";
 import ButtonSubmitForm from "../buttonSubmitForm";
 import Input from "../inputLogin";
+import { logoLogin } from "assets";
 import styles from "./styles.module.scss";
 
 const Login = () => {
