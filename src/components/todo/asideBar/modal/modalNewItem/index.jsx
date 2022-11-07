@@ -1,13 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { getUser, getActiveIndex, getProject, changeModalNewItem } from "store";
+import { getUser, getActiveIndex, getProject, changeModalNewItem, loadAllProjects } from "store";
 import { addNewTodo } from "services";
 import { validationDateTodo } from "utils";
-import { loadAllProjects } from "store";
 import ModalInput from "../../../componentsModal/modalInput";
 import SingleSelect from "../../../componentsModal/singleSelect";
-
 import styles from "./styles.module.scss";
 
 const ModalNewItem = () => {

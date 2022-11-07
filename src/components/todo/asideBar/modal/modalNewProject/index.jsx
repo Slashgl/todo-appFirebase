@@ -1,10 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { firestore } from "services/firebase";
 import { setProjectAsideBar } from "services";
-import { changeModalNewProject, getProject, getUser, loadAllProjects } from "store";
+import { addNewProject, changeModalNewProject, changeUser, getProject, getUser } from "store";
 import { useForm } from "react-hook-form";
 import ModalInput from "../../../componentsModal/modalInput";
 import styles from "./styles.module.scss";
-import { useDispatch } from "react-redux";
 
 const ModalNewProject = () => {
   const { register, handleSubmit } = useForm();
@@ -12,11 +14,26 @@ const ModalNewProject = () => {
   const dispatch = useDispatch();
   const project = getProject() || [];
 
+  const updateAsideBar = () => {
+    const auth = getAuth();
+
+    return onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        await firestore
+          .collection("projects")
+          .doc(user.uid)
+          .get()
+          .then((doc) => dispatch(addNewProject(doc.data())));
+        dispatch(changeUser(user));
+      }
+    });
+  };
+
   const onSubmit = (data) => {
     if (data.project !== "") {
       setProjectAsideBar(user, project, data);
     }
-    loadAllProjects();
+    updateAsideBar();
     dispatch(changeModalNewProject());
   };
 
