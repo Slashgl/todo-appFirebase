@@ -10,7 +10,7 @@ import { validationLogin, notificationLogin } from "utils";
 import { authApi } from "services";
 import Header from "../header";
 import ButtonSubmitForm from "../buttonSubmitForm";
-import Input from "../inputLogin";
+import Input from "../input";
 import { logoLogin } from "assets";
 import styles from "./styles.module.scss";
 

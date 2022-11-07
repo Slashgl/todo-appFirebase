@@ -15,7 +15,7 @@ import {
 } from "utils";
 import Header from "../header";
 import ButtonSubmitForm from "../buttonSubmitForm";
-import Input from "../inputRegistration";
+import Input from "../input";
 import styles from "./styles.module.scss";
 
 const Registration = () => {
@@ -47,7 +47,6 @@ const Registration = () => {
 
   const onSubmit = (data) => {
     userRegistration(data.email, data.password, dispatch, navigate, reset);
-    reset();
   };
 
   return (
@@ -55,19 +54,33 @@ const Registration = () => {
       <div className={styles.registration}>
         <Header title={"Welcome Onboard!"} subTitle={"Lets help you in completing your tasks"} />
         <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
-          <Input register={register} name={"fullName"} errors={errors?.fullName?.message} />
-          <Input register={register} name={"email"} errors={errors?.email?.message} />
+          <Input
+            register={register}
+            name={"fullName"}
+            errors={errors?.fullName?.message}
+            label={"FullName"}
+          />
+          <Input
+            register={register}
+            name={"email"}
+            errors={errors?.email?.message}
+            label={"Email"}
+          />
           <Input
             register={register}
             error={errors?.password?.message}
             name={"password"}
             autoComplete={"new-password"}
+            label={"Password"}
+            type={"password"}
           />
           <Input
             register={register}
             name={"confirmPassword"}
             autoComplete={"new-password"}
             errors={errors?.confirmPassword?.message}
+            label={"ConfirmPassword"}
+            type={"password"}
           />
           <ButtonSubmitForm title={"Register"} formState={!formState.isValid} />
         </form>

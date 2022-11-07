@@ -8,7 +8,7 @@ import { authApi } from "services";
 import { changeUser } from "store";
 import { validationResetPassword } from "utils";
 import ButtonSubmitForm from "../buttonSubmitForm";
-import Input from "../inputLogin";
+import Input from "../input";
 import Header from "./header";
 import styles from "./styles.module.scss";
 

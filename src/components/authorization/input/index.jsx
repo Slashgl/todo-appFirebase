@@ -2,15 +2,11 @@ import React from "react";
 import Label from "../label";
 import styles from "./styles.module.scss";
 
-const Input = ({ register, errors, name, type, autoComplete, invalidEmail }) => {
-  const capitalize = (name) => {
-    return name[0] + name.slice(1);
-  };
-
+const Input = ({ label, name, type, register, errors, invalidEmail }) => {
   return (
     <Label>
-      <span>{capitalize(name)}</span>
-      <input className={styles.input} type={type} {...register(name)} autoComplete={autoComplete} />
+      <span className={styles.label}>{label}</span>
+      <input className={styles.input} type={type} {...register(name)} />
       <div className={styles.invalidFeedback}>{errors}</div>
       <div className={styles.invalidEmail}>{invalidEmail && "Email is registered"}</div>
     </Label>

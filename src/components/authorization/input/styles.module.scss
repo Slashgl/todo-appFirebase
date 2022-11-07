@@ -1,8 +1,5 @@
 @import "src/assets/mixin/media";
-
-.label {
-  margin-top: 21px;
-}
+@import "src/assets/variables/colors";
 
 .input {
   cursor: pointer;
@@ -16,4 +13,14 @@
   @include screen576 {
     width: 100%;
   }
+}
+
+.invalidEmail {
+  margin-left: 19px;
+  color: $tomato;
+}
+
+.invalidFeedback {
+  margin: 10px 0 0 19px;
+  color: $tomato;
 }
