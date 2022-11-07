@@ -8,8 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { changeUser } from "store";
 import { validationLogin, notificationLogin } from "utils";
 import { authApi } from "services";
+import { logoLogin } from "assets";
+import Header from "../header";
 import ButtonSubmitForm from "../buttonSubmitForm";
-import Header from "./header";
 import Input from "../inputLogin";
 import styles from "./styles.module.scss";
 
@@ -39,7 +40,7 @@ const Login = () => {
   return (
     <>
       <div className={styles.login}>
-        <Header />
+        <Header title={"Welcome Back!"} img={logoLogin} />
         <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
           <Input
             register={register}

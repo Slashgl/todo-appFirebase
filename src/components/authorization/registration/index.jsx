@@ -13,9 +13,9 @@ import {
   notificationSuccess,
   validationRegister,
 } from "utils";
+import Header from "../header";
 import ButtonSubmitForm from "../buttonSubmitForm";
 import Input from "../inputRegistration";
-import Header from "./header";
 import styles from "./styles.module.scss";
 
 const Registration = () => {
@@ -53,7 +53,7 @@ const Registration = () => {
   return (
     <>
       <div className={styles.registration}>
-        <Header />
+        <Header title={"Welcome Onboard!"} subTitle={"Lets help you in completing your tasks"} />
         <form className={styles.wrapperForm} onSubmit={handleSubmit(onSubmit)}>
           <Input register={register} name={"fullName"} errors={errors?.fullName?.message} />
           <Input register={register} name={"email"} errors={errors?.email?.message} />
