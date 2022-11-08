@@ -1,0 +1,26 @@
+@import "src/assets/mixin/media";
+@import "src/assets/variables/colors";
+
+.input {
+  cursor: pointer;
+  width: 335px;
+  height: 50px;
+  padding-left: 19px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+
+  @include screen576 {
+    width: 100%;
+  }
+}
+
+.invalidEmail {
+  margin-left: 19px;
+  color: $tomato;
+}
+
+.invalidFeedback {
+  margin: 10px 0 0 19px;
+  color: $tomato;
+}

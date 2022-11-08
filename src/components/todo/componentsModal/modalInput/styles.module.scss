@@ -1,0 +1,10 @@
+@import "src/assets/variables/colors";
+
+.newItemTitle {
+  cursor: pointer;
+  margin: 33px 0 0 0;
+  outline: none;
+  border: none;
+  background-color: $modalCream;
+  border-bottom: 3px solid $grey;
+}

@@ -1,0 +1,56 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.title {
+  text-align: center;
+}
+
+.description {
+  cursor: pointer;
+  height: 130px;
+  margin-top: 17px;
+  outline: none;
+  background: $modalBackgroundRgba;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.save, .delete, .checked {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  margin-top: 8px;
+  background: $green;
+  border: none;
+  border-radius: 8px;
+}
+
+.save {
+  background: $lightGreen;
+
+  img {
+    left: 280px;
+  }
+}
+
+.delete {
+  background: $red;
+
+  img {
+    left: 280px;
+  }
+}
+
+.checked {
+  background: $blue;
+
+  img {
+    left: 225px;
+  }
+}

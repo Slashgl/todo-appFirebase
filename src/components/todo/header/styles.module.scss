@@ -1,0 +1,66 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.header {
+  position: relative;
+  width: 100%;
+  background: $lowYellow;
+
+  @include screen576 {
+    height: 80px;
+  }
+}
+
+.menu {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include screen576 {
+    width: 49px;
+    height: 53px;
+  }
+}
+
+.headerIcon {
+  @include screen576 {
+    width: 52px;
+    height: 43px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  @include screen576 {
+    justify-content: end;
+  }
+}
+
+.logOut {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 80px;
+  height: 50px;
+  border: none;
+  background-color: $tomato;
+  transform: translateY(-50%);
+
+  @include screen576 {
+    display: none;
+  }
+}
+
+.title {
+  font-size: 38px;
+
+  @include screen576 {
+    font-size: 28px;
+  }
+}

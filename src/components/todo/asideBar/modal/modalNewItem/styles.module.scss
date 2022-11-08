@@ -1,0 +1,51 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $modalBackgroundRgba;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 722px;
+  height: 413px;
+  padding: 16px 22px 11px 22px;
+  background-color: $modalCream;
+
+  @include screen760 {
+    width: 100%;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.description {
+  height: 130px;
+  margin-top: 17px;
+  background: $modalGreyRgba;
+}
+
+.addNewItem {
+  cursor: pointer;
+  height: 42px;
+  margin-top: 13px;
+  border: none;
+  background: $green;
+  border-radius: 8px;
+
+  &:disabled {
+    background: $grey;
+  }
+}

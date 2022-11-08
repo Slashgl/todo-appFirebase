@@ -1,35 +1,37 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import ROUTES from "routes";
+import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { changeUser, deleteUser, getUser } from "store";
+import { useDispatch } from "react-redux";
+import { getIsAsideBar, loadAllProjects } from "store";
+import { Header, AsideBar, BoardWeekDay, Footer } from "components";
+import styles from "./styles.module.scss";
 
 const HomePage = () => {
-  const user = getUser();
   const auth = getAuth();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAsideBar = getIsAsideBar();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(changeUser(user));
-      }
-    });
+    if (auth.currentUser === null) {
+      navigate(ROUTES.LOGIN);
+    }
+  });
+
+  useEffect(() => {
+    dispatch(loadAllProjects());
   }, []);
 
   return (
-    <>
-      <div>Welcome {user.email}</div>
-      <button
-        onClick={() => {
-          dispatch(deleteUser());
-          navigate("/login");
-        }}
-      >
-        Выйти
-      </button>
-    </>
+    <div className={styles.homePage}>
+      <Header />
+      <div className={isAsideBar ? styles.hiddenAsideBar : styles.main}>
+        <AsideBar />
+        <BoardWeekDay />
+      </div>
+      <Footer />
+    </div>
   );
 };
 

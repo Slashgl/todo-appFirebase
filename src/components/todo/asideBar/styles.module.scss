@@ -1,0 +1,62 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+.AsideBar {
+  height: 100vh;
+  padding: 0 20px;
+  background: $whiteAsideBar;
+}
+
+.title {
+  padding-top: 23px;
+  text-align: center;
+  font-size: 32px;
+  @include screen576 {
+    font-size: 28px;
+  }
+}
+
+.btnNewProject, .item {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin: 19px auto;
+  background: $paleCreamRgba;
+  border: none;
+  box-shadow: 0 2px 8px $blackGreyRgba;
+  border-radius: 8px;
+}
+
+.weeks {
+  margin-top: 22px;
+}
+
+.item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $lightCreamRgba;
+}
+
+.subTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.options {
+  cursor: pointer;
+  margin-top: 5px;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+.hidden {
+  display: none;
+}

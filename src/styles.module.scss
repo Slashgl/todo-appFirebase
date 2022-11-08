@@ -1,0 +1,13 @@
+@import "src/assets/variables/colors";
+@import "src/assets/mixin/media";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url("assets/img/shape.svg") $white no-repeat;
+}
