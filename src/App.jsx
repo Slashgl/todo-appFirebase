@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { LoginPage, RegistrationPage, NewPasswordPage, HomePage } from "pages";
 import ROUTES from "routes";
+import styles from "./styles.module.scss";
 
 const App = () => {
   return (
